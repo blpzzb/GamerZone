@@ -2,55 +2,107 @@
 <html lang="es">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Contacta con GamerZone para realizar consultas sobre productos, compatibilidad de componentes y configuración de setups gamer."
+    >
 
     <title>Contacto | GamerZone</title>
 
-    <link rel="stylesheet" href="css/estilos.css">
+
+    <link
+        rel="stylesheet"
+        href="css/estilos.css"
+    >
+
+
+    <link
+        rel="stylesheet"
+        href="css/contacto.css"
+    >
+
 </head>
+
 
 <body>
 
-    <!-- ============================= -->
+
+    <!-- ================================================= -->
     <!-- HEADER -->
-    <!-- ============================= -->
+    <!-- ================================================= -->
 
     <header>
 
-        <h1>GamerZone</h1>
+        <a
+            href="index.html"
+            class="logo-gamerzone"
+        >
+            GamerZone
+        </a>
+
 
         <nav>
-            <a href="index.html">Inicio</a>
-            <a href="productos.html">Productos</a>
-            <a href="nosotros.html">Nosotros</a>
-            <a href="contacto.html">Contacto</a>
+
+            <a href="index.html">
+                Inicio
+            </a>
+
+            <a href="productos.html">
+                Productos
+            </a>
+
+            <a href="nosotros.html">
+                Nosotros
+            </a>
+
+            <a
+                href="contacto.html"
+                class="nav-activo-contacto"
+            >
+                Contacto
+            </a>
+
         </nav>
 
     </header>
 
 
+
     <main>
 
-        <!-- ============================= -->
-        <!-- PORTADA CONTACTO -->
-        <!-- ============================= -->
 
-        <section class="contacto-portada">
+        <!-- ================================================= -->
+        <!-- HERO -->
+        <!-- ================================================= -->
 
-            <div class="contacto-portada-contenido">
+        <section class="contacto-nuevo-hero">
 
-                <span class="etiqueta-seccion">
+            <div class="contacto-nuevo-hero-contenido">
+
+                <span class="contacto-etiqueta">
                     CONTACTO
                 </span>
 
-                <h2>
-                    ¿Necesitas ayuda con tu próximo upgrade?
-                </h2>
+
+                <h1>
+                    Una buena elección
+                    comienza con la
+                    <span>pregunta correcta.</span>
+                </h1>
+
 
                 <p>
-                    Cuéntanos qué necesitas y te ayudaremos a encontrar
-                    una opción adecuada para tu setup.
+                    Cuéntanos qué necesitas para tu setup.
+                    Puedes consultar por productos, compatibilidad,
+                    componentes o recibir orientación antes de elegir.
                 </p>
 
             </div>
@@ -58,291 +110,131 @@
         </section>
 
 
-        <!-- ============================= -->
-        <!-- CONTACTO PRINCIPAL -->
-        <!-- ============================= -->
 
-        <section class="contacto-principal">
+        <!-- ================================================= -->
+        <!-- ACCESOS RÁPIDOS -->
+        <!-- ================================================= -->
 
-            <div class="contacto-grid">
+        <section class="contacto-accesos">
 
-                <!-- INFORMACIÓN -->
-                <div class="contacto-info">
 
-                    <span class="etiqueta-seccion">
-                        HABLEMOS
+            <div class="contacto-accesos-contenido">
+
+
+                <div class="contacto-accesos-cabecera">
+
+                    <span class="contacto-etiqueta">
+                        CONSULTA RÁPIDA
                     </span>
 
+
                     <h2>
-                        Estamos para ayudarte
+                        ¿En qué podemos orientarte?
                     </h2>
 
-                    <p class="contacto-intro">
-                        Puedes utilizar este formulario para realizar
-                        consultas sobre productos, compatibilidad,
-                        periféricos o cualquier duda relacionada con
-                        GamerZone.
+
+                    <p>
+                        Selecciona una opción y prepararemos
+                        automáticamente el formulario.
                     </p>
-
-
-                    <div class="contacto-opciones">
-
-                        <article class="contacto-opcion">
-
-                            <span class="contacto-numero">
-                                01
-                            </span>
-
-                            <div>
-                                <h3>Consulta de productos</h3>
-
-                                <p>
-                                    Pregunta por características,
-                                    disponibilidad o alternativas.
-                                </p>
-                            </div>
-
-                        </article>
-
-
-                        <article class="contacto-opcion">
-
-                            <span class="contacto-numero">
-                                02
-                            </span>
-
-                            <div>
-                                <h3>Ayuda con tu setup</h3>
-
-                                <p>
-                                    Cuéntanos qué equipo tienes y qué
-                                    componente quieres mejorar.
-                                </p>
-                            </div>
-
-                        </article>
-
-
-                        <article class="contacto-opcion">
-
-                            <span class="contacto-numero">
-                                03
-                            </span>
-
-                            <div>
-                                <h3>Soporte pre-venta</h3>
-
-                                <p>
-                                    Resuelve tus dudas antes de elegir
-                                    un producto de nuestro catálogo.
-                                </p>
-                            </div>
-
-                        </article>
-
-                    </div>
 
                 </div>
 
 
-                <!-- ============================= -->
-                <!-- FORMULARIO -->
-                <!-- ============================= -->
 
-                <div class="contenedor-formulario">
-
-                    <form id="formularioContacto" novalidate>
-
-                        <div class="encabezado-formulario">
-
-                            <h2>Envíanos un mensaje</h2>
-
-                            <p>
-                                Completa los siguientes datos.
-                            </p>
-
-                        </div>
+                <div class="contacto-accesos-grid">
 
 
-                        <!-- NOMBRE -->
-                        <div class="grupo-formulario">
+                    <button
+                        type="button"
+                        class="contacto-acceso"
+                        data-motivo="producto"
+                    >
 
-                            <label for="nombre">
-                                Nombre completo
-                            </label>
+                        <span class="contacto-acceso-numero">
+                            01
+                        </span>
 
-                            <input
-                                type="text"
-                                id="nombre"
-                                name="nombre"
-                                placeholder="Ej: Javier Castro"
-                                autocomplete="name"
-                            >
+                        <strong>
+                            Producto
+                        </strong>
 
-                            <small
-                                class="mensaje-error"
-                                id="errorNombre">
-                            </small>
+                        <p>
+                            Consultar precio, características
+                            o información de un producto.
+                        </p>
 
-                        </div>
-
-
-                        <!-- CORREO -->
-                        <div class="grupo-formulario">
-
-                            <label for="correo">
-                                Correo electrónico
-                            </label>
-
-                            <input
-                                type="email"
-                                id="correo"
-                                name="correo"
-                                placeholder="Ej: nombre@correo.cl"
-                                autocomplete="email"
-                            >
-
-                            <small
-                                class="mensaje-error"
-                                id="errorCorreo">
-                            </small>
-
-                        </div>
+                    </button>
 
 
-                        <!-- TELÉFONO -->
-                        <div class="grupo-formulario">
 
-                            <label for="telefono">
-                                Teléfono
-                            </label>
+                    <button
+                        type="button"
+                        class="contacto-acceso"
+                        data-motivo="setup"
+                    >
 
-                            <input
-                                type="tel"
-                                id="telefono"
-                                name="telefono"
-                                placeholder="Ej: 912345678"
-                                autocomplete="tel"
-                                inputmode="numeric"
-                            >
+                        <span class="contacto-acceso-numero">
+                            02
+                        </span>
 
-                            <small
-                                class="mensaje-error"
-                                id="errorTelefono">
-                            </small>
+                        <strong>
+                            Mi setup
+                        </strong>
 
-                        </div>
+                        <p>
+                            Recibir orientación para mejorar
+                            tu espacio o equipo gamer.
+                        </p>
 
-
-                        <!-- MOTIVO -->
-                        <div class="grupo-formulario">
-
-                            <label for="motivo">
-                                Motivo de contacto
-                            </label>
-
-                            <select
-                                id="motivo"
-                                name="motivo"
-                            >
-
-                                <option value="">
-                                    Selecciona una opción
-                                </option>
-
-                                <option value="producto">
-                                    Consulta de producto
-                                </option>
-
-                                <option value="setup">
-                                    Ayuda con mi setup
-                                </option>
-
-                                <option value="compatibilidad">
-                                    Compatibilidad de componentes
-                                </option>
-
-                                <option value="otro">
-                                    Otra consulta
-                                </option>
-
-                            </select>
-
-                            <small
-                                class="mensaje-error"
-                                id="errorMotivo">
-                            </small>
-
-                        </div>
+                    </button>
 
 
-                        <!-- MENSAJE -->
-                        <div class="grupo-formulario">
 
-                            <label for="mensaje">
-                                Mensaje
-                            </label>
+                    <button
+                        type="button"
+                        class="contacto-acceso"
+                        data-motivo="compatibilidad"
+                    >
 
-                            <textarea
-                                id="mensaje"
-                                name="mensaje"
-                                rows="6"
-                                placeholder="Cuéntanos en qué podemos ayudarte..."
-                            ></textarea>
+                        <span class="contacto-acceso-numero">
+                            03
+                        </span>
 
-                            <div class="contador-mensaje">
-                                <span id="contadorCaracteres">
-                                    0
-                                </span>
-                                / 500 caracteres
-                            </div>
+                        <strong>
+                            Compatibilidad
+                        </strong>
 
-                            <small
-                                class="mensaje-error"
-                                id="errorMensaje">
-                            </small>
+                        <p>
+                            Consultar si un componente es adecuado
+                            para una configuración específica.
+                        </p>
 
-                        </div>
+                    </button>
 
 
-                        <!-- TÉRMINOS -->
-                        <div class="grupo-checkbox">
 
-                            <input
-                                type="checkbox"
-                                id="terminos"
-                                name="terminos"
-                            >
+                    <button
+                        type="button"
+                        class="contacto-acceso"
+                        data-motivo="otro"
+                    >
 
-                            <label for="terminos">
-                                Confirmo que los datos ingresados son correctos.
-                            </label>
+                        <span class="contacto-acceso-numero">
+                            04
+                        </span>
 
-                        </div>
+                        <strong>
+                            Otra consulta
+                        </strong>
 
-                        <small
-                            class="mensaje-error"
-                            id="errorTerminos">
-                        </small>
+                        <p>
+                            Utiliza esta opción para cualquier
+                            otro tipo de consulta.
+                        </p>
 
+                    </button>
 
-                        <!-- BOTÓN -->
-                        <button
-                            type="submit"
-                            class="boton-enviar"
-                        >
-                            Enviar mensaje
-                        </button>
-
-
-                        <!-- MENSAJE DE ÉXITO -->
-                        <div
-                            class="mensaje-exito"
-                            id="mensajeExito"
-                        >
-                        </div>
-
-                    </form>
 
                 </div>
 
@@ -351,47 +243,473 @@
         </section>
 
 
-        <!-- ============================= -->
-        <!-- CTA -->
-        <!-- ============================= -->
 
-        <section class="contacto-cta">
+        <!-- ================================================= -->
+        <!-- FORMULARIO -->
+        <!-- ================================================= -->
 
-            <span class="etiqueta-seccion">
-                EXPLORA GAMERZONE
-            </span>
+        <section
+            class="contacto-nuevo-principal"
+            id="formulario"
+        >
 
-            <h2>
-                ¿Todavía estás buscando tu próximo componente?
-            </h2>
 
-            <p>
-                Revisa nuestro catálogo completo de productos gamer.
-            </p>
+            <div class="contacto-nuevo-grid">
 
-            <a
-                href="productos.html"
-                class="boton-principal"
-            >
-                Ver catálogo
-            </a>
+
+                <!-- INFORMACIÓN -->
+
+                <aside class="contacto-nuevo-info">
+
+
+                    <span class="contacto-etiqueta">
+                        HABLEMOS
+                    </span>
+
+
+                    <h2>
+                        Cuéntanos qué necesitas.
+                    </h2>
+
+
+                    <p>
+                        Completa el formulario con la información
+                        necesaria para entender tu consulta.
+                        Los campos se validan antes de permitir
+                        el envío.
+                    </p>
+
+
+
+                    <div class="contacto-info-lista">
+
+
+                        <div class="contacto-info-item">
+
+                            <span class="contacto-info-numero">
+                                01
+                            </span>
+
+
+                            <div>
+
+                                <strong>
+                                    Datos personales
+                                </strong>
+
+                                <p>
+                                    Nombre, correo y teléfono
+                                    para identificar la consulta.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="contacto-info-item">
+
+                            <span class="contacto-info-numero">
+                                02
+                            </span>
+
+
+                            <div>
+
+                                <strong>
+                                    Motivo específico
+                                </strong>
+
+                                <p>
+                                    Selecciona el tipo de ayuda
+                                    que necesitas.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="contacto-info-item">
+
+                            <span class="contacto-info-numero">
+                                03
+                            </span>
+
+
+                            <div>
+
+                                <strong>
+                                    Mensaje detallado
+                                </strong>
+
+                                <p>
+                                    Explícanos brevemente
+                                    qué estás buscando.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                </aside>
+
+
+
+                <!-- FORMULARIO -->
+
+                <div class="contacto-formulario-panel">
+
+
+                    <div class="contacto-formulario-cabecera">
+
+                        <span class="contacto-etiqueta">
+                            FORMULARIO
+                        </span>
+
+
+                        <h2>
+                            Enviar una consulta
+                        </h2>
+
+
+                        <p>
+                            Todos los campos son obligatorios.
+                        </p>
+
+                    </div>
+
+
+
+                    <form
+                        id="formularioContacto"
+                        novalidate
+                    >
+
+
+                        <!-- NOMBRE + CORREO -->
+
+                        <div class="contacto-fila">
+
+
+                            <div class="grupo-formulario">
+
+                                <label for="nombre">
+                                    Nombre
+                                </label>
+
+
+                                <input
+                                    type="text"
+                                    id="nombre"
+                                    name="nombre"
+                                    autocomplete="name"
+                                    placeholder="Ej: Javier Castro"
+                                >
+
+
+                                <small
+                                    class="mensaje-error"
+                                    id="errorNombre"
+                                ></small>
+
+                            </div>
+
+
+
+                            <div class="grupo-formulario">
+
+                                <label for="correo">
+                                    Correo electrónico
+                                </label>
+
+
+                                <input
+                                    type="email"
+                                    id="correo"
+                                    name="correo"
+                                    autocomplete="email"
+                                    placeholder="nombre@correo.cl"
+                                >
+
+
+                                <small
+                                    class="mensaje-error"
+                                    id="errorCorreo"
+                                ></small>
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <!-- TELÉFONO + MOTIVO -->
+
+                        <div class="contacto-fila">
+
+
+                            <div class="grupo-formulario">
+
+                                <label for="telefono">
+                                    Teléfono
+                                </label>
+
+
+                                <input
+                                    type="tel"
+                                    id="telefono"
+                                    name="telefono"
+                                    autocomplete="tel"
+                                    inputmode="numeric"
+                                    placeholder="912345678"
+                                >
+
+
+                                <small
+                                    class="mensaje-error"
+                                    id="errorTelefono"
+                                ></small>
+
+                            </div>
+
+
+
+                            <div class="grupo-formulario">
+
+                                <label for="motivo">
+                                    Motivo de consulta
+                                </label>
+
+
+                                <select
+                                    id="motivo"
+                                    name="motivo"
+                                >
+
+                                    <option value="">
+                                        Selecciona una opción
+                                    </option>
+
+                                    <option value="producto">
+                                        Consulta de producto
+                                    </option>
+
+                                    <option value="setup">
+                                        Ayuda con mi setup
+                                    </option>
+
+                                    <option value="compatibilidad">
+                                        Compatibilidad
+                                    </option>
+
+                                    <option value="otro">
+                                        Otra consulta
+                                    </option>
+
+                                </select>
+
+
+                                <small
+                                    class="mensaje-error"
+                                    id="errorMotivo"
+                                ></small>
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <!-- MENSAJE -->
+
+                        <div class="grupo-formulario">
+
+                            <label for="mensaje">
+                                Mensaje
+                            </label>
+
+
+                            <textarea
+                                id="mensaje"
+                                name="mensaje"
+                                rows="6"
+                                maxlength="500"
+                                placeholder="Cuéntanos qué producto, componente o mejora estás buscando..."
+                            ></textarea>
+
+
+                            <div class="contacto-contador">
+
+                                <span>
+                                    Máximo 500 caracteres
+                                </span>
+
+                                <span>
+                                    <span id="contadorCaracteres">0</span>/500
+                                </span>
+
+                            </div>
+
+
+                            <small
+                                class="mensaje-error"
+                                id="errorMensaje"
+                            ></small>
+
+                        </div>
+
+
+
+                        <!-- CONFIRMACIÓN -->
+
+                        <div class="contacto-checkbox">
+
+                            <input
+                                type="checkbox"
+                                id="terminos"
+                                name="terminos"
+                            >
+
+
+                            <label for="terminos">
+                                Confirmo que los datos ingresados
+                                son correctos.
+                            </label>
+
+                        </div>
+
+
+                        <small
+                            class="mensaje-error"
+                            id="errorTerminos"
+                        ></small>
+
+
+
+                        <!-- ENVIAR -->
+
+                        <button
+                            type="submit"
+                            class="boton-enviar"
+                        >
+                            Enviar consulta
+                        </button>
+
+
+
+                        <div
+                            class="mensaje-exito"
+                            id="mensajeExito"
+                            role="status"
+                            aria-live="polite"
+                        ></div>
+
+
+                    </form>
+
+
+                </div>
+
+
+            </div>
+
 
         </section>
+
+
+
+        <!-- ================================================= -->
+        <!-- CTA -->
+        <!-- ================================================= -->
+
+        <section class="contacto-nuevo-cta">
+
+
+            <div class="contacto-nuevo-cta-contenido">
+
+
+                <span class="contacto-etiqueta">
+                    CATÁLOGO
+                </span>
+
+
+                <h2>
+                    ¿Quieres revisar las opciones
+                    antes de escribirnos?
+                </h2>
+
+
+                <p>
+                    Explora el catálogo, utiliza los filtros
+                    y vuelve cuando necesites orientación.
+                </p>
+
+
+                <a
+                    href="productos.html"
+                    class="contacto-boton-catalogo"
+                >
+                    Explorar productos
+                    <span>→</span>
+                </a>
+
+
+            </div>
+
+
+        </section>
+
 
     </main>
 
 
-    <!-- ============================= -->
+
+    <!-- ================================================= -->
     <!-- FOOTER -->
-    <!-- ============================= -->
+    <!-- ================================================= -->
 
     <footer>
 
-        <h3>GamerZone</h3>
+        <h3>
+            GamerZone
+        </h3>
+
 
         <p>
-            Tu tienda gamer para llevar tu setup al siguiente nivel.
+            Gaming, componentes y periféricos
+            para construir tu próximo setup.
         </p>
+
+
+        <div class="footer-navegacion">
+
+            <a href="index.html">
+                Inicio
+            </a>
+
+            <a href="productos.html">
+                Productos
+            </a>
+
+            <a href="nosotros.html">
+                Nosotros
+            </a>
+
+            <a href="contacto.html">
+                Contacto
+            </a>
+
+        </div>
+
 
         <p class="copyright">
             &copy; 2026 GamerZone - Todos los derechos reservados.
@@ -401,6 +719,7 @@
 
 
     <script src="js/script.js"></script>
+
 
 </body>
 

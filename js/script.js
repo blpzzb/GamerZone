@@ -46,18 +46,12 @@ function iniciarCatalogoProductos() {
         !buscador ||
         productos.length === 0
     ) {
-
         return;
-
     }
 
 
     let filtroActual = "todos";
 
-
-    /* ================================================= */
-    /* NORMALIZAR TEXTO */
-    /* ================================================= */
 
     function normalizarTexto(texto) {
 
@@ -70,24 +64,15 @@ function iniciarCatalogoProductos() {
     }
 
 
-    /* ================================================= */
-    /* NOMBRE VISIBLE DE CATEGORÍA */
-    /* ================================================= */
-
     function nombreCategoria(categoria) {
 
         const categorias = {
 
             "todos": "Todos",
-
             "perifericos": "Periféricos",
-
             "monitores": "Monitores",
-
             "componentes": "Componentes",
-
             "pc-gamer": "PC Gamer",
-
             "accesorios": "Accesorios"
 
         };
@@ -97,10 +82,6 @@ function iniciarCatalogoProductos() {
 
     }
 
-
-    /* ================================================= */
-    /* APLICAR BÚSQUEDA + FILTRO */
-    /* ================================================= */
 
     function aplicarFiltros() {
 
@@ -150,9 +131,7 @@ function iniciarCatalogoProductos() {
 
 
             if (mostrar) {
-
                 cantidadVisible++;
-
             }
 
         });
@@ -165,10 +144,6 @@ function iniciarCatalogoProductos() {
 
     }
 
-
-    /* ================================================= */
-    /* ACTUALIZAR TEXTO DE RESULTADOS */
-    /* ================================================= */
 
     function actualizarResultado(
         cantidadVisible,
@@ -189,7 +164,6 @@ function iniciarCatalogoProductos() {
 
         }
 
-
         else if (
             textoOriginal === "" &&
             filtroActual !== "todos"
@@ -199,7 +173,6 @@ function iniciarCatalogoProductos() {
                 `Mostrando ${cantidadVisible} producto${cantidadVisible !== 1 ? "s" : ""} en ${categoriaTexto}`;
 
         }
-
 
         else if (
             textoOriginal !== "" &&
@@ -221,7 +194,6 @@ function iniciarCatalogoProductos() {
             }
 
         }
-
 
         else {
 
@@ -252,10 +224,6 @@ function iniciarCatalogoProductos() {
     }
 
 
-    /* ================================================= */
-    /* BOTONES ACTIVOS */
-    /* ================================================= */
-
     function actualizarBotonActivo(
         botonSeleccionado
     ) {
@@ -263,9 +231,7 @@ function iniciarCatalogoProductos() {
         botonesFiltro.forEach(
             function (boton) {
 
-                boton.classList.remove(
-                    "activo"
-                );
+                boton.classList.remove("activo");
 
                 boton.setAttribute(
                     "aria-pressed",
@@ -289,10 +255,6 @@ function iniciarCatalogoProductos() {
     }
 
 
-    /* ================================================= */
-    /* FORMULARIO DE BÚSQUEDA */
-    /* ================================================= */
-
     formularioBusqueda.addEventListener(
         "submit",
         function (evento) {
@@ -300,6 +262,7 @@ function iniciarCatalogoProductos() {
             evento.preventDefault();
 
             aplicarFiltros();
+
 
             document
                 .getElementById("listaProductos")
@@ -312,10 +275,6 @@ function iniciarCatalogoProductos() {
     );
 
 
-    /* ================================================= */
-    /* FILTROS POR CATEGORÍA */
-    /* ================================================= */
-
     botonesFiltro.forEach(
         function (boton) {
 
@@ -326,11 +285,14 @@ function iniciarCatalogoProductos() {
                     filtroActual =
                         boton.dataset.filtro;
 
+
                     actualizarBotonActivo(
                         boton
                     );
 
+
                     aplicarFiltros();
+
 
                     document
                         .getElementById("listaProductos")
@@ -345,10 +307,6 @@ function iniciarCatalogoProductos() {
         }
     );
 
-
-    /* ================================================= */
-    /* LIMPIAR TODO */
-    /* ================================================= */
 
     function restablecerCatalogo() {
 
@@ -401,6 +359,7 @@ function iniciarCatalogoProductos() {
 
                 restablecerCatalogo();
 
+
                 document
                     .querySelector(".zona-catalogo-control")
                     .scrollIntoView({
@@ -413,10 +372,6 @@ function iniciarCatalogoProductos() {
 
     }
 
-
-    /* ================================================= */
-    /* ESTADO INICIAL */
-    /* ================================================= */
 
     const botonTodos =
         document.querySelector(
@@ -452,9 +407,7 @@ function iniciarFormularioContacto() {
 
 
     if (!formulario) {
-
         return;
-
     }
 
 
@@ -505,6 +458,64 @@ function iniciarFormularioContacto() {
         document.getElementById(
             "mensajeExito"
         );
+
+
+    /* ================================================= */
+    /* BOTONES RÁPIDOS */
+    /* ================================================= */
+
+    const botonesMotivo =
+        document.querySelectorAll(
+            ".contacto-acceso"
+        );
+
+
+    botonesMotivo.forEach(
+        function (boton) {
+
+            boton.addEventListener(
+                "click",
+                function () {
+
+                    const motivoSeleccionado =
+                        boton.dataset.motivo;
+
+
+                    motivo.value =
+                        motivoSeleccionado;
+
+
+                    botonesMotivo.forEach(
+                        function (otroBoton) {
+
+                            otroBoton.classList.remove(
+                                "activo"
+                            );
+
+                        }
+                    );
+
+
+                    boton.classList.add(
+                        "activo"
+                    );
+
+
+                    validarMotivo();
+
+
+                    document
+                        .getElementById("formulario")
+                        .scrollIntoView({
+                            behavior: "smooth",
+                            block: "start"
+                        });
+
+                }
+            );
+
+        }
+    );
 
 
     /* ================================================= */
@@ -803,33 +814,18 @@ function iniciarFormularioContacto() {
 
 
     /* ================================================= */
-    /* CONTADOR */
+    /* CONTADOR DE MENSAJE */
     /* ================================================= */
 
     mensaje.addEventListener(
         "input",
         function () {
 
-            if (
-                mensaje.value.length > 500
-            ) {
-
-                mensaje.value =
-                    mensaje.value.substring(
-                        0,
-                        500
-                    );
-
-            }
-
-
             contadorCaracteres.textContent =
                 mensaje.value.length;
 
 
-            if (
-                mensaje.value.length > 0
-            ) {
+            if (mensaje.value.length > 0) {
 
                 validarMensaje();
 
@@ -850,7 +846,7 @@ function iniciarFormularioContacto() {
 
 
     /* ================================================= */
-    /* TELÉFONO */
+    /* TELÉFONO SOLO NÚMEROS */
     /* ================================================= */
 
     telefono.addEventListener(
@@ -867,7 +863,47 @@ function iniciarFormularioContacto() {
 
 
     /* ================================================= */
-    /* VALIDACIÓN INDIVIDUAL */
+    /* CAMBIO MANUAL DE MOTIVO */
+    /* ================================================= */
+
+    motivo.addEventListener(
+        "change",
+        function () {
+
+            validarMotivo();
+
+
+            botonesMotivo.forEach(
+                function (boton) {
+
+                    if (
+                        boton.dataset.motivo ===
+                        motivo.value
+                    ) {
+
+                        boton.classList.add(
+                            "activo"
+                        );
+
+                    }
+
+                    else {
+
+                        boton.classList.remove(
+                            "activo"
+                        );
+
+                    }
+
+                }
+            );
+
+        }
+    );
+
+
+    /* ================================================= */
+    /* VALIDACIONES EN TIEMPO REAL */
     /* ================================================= */
 
     nombre.addEventListener(
@@ -885,11 +921,6 @@ function iniciarFormularioContacto() {
         validarTelefono
     );
 
-    motivo.addEventListener(
-        "change",
-        validarMotivo
-    );
-
     mensaje.addEventListener(
         "blur",
         validarMensaje
@@ -902,7 +933,7 @@ function iniciarFormularioContacto() {
 
 
     /* ================================================= */
-    /* ENVÍO DEL FORMULARIO */
+    /* ENVÍO */
     /* ================================================= */
 
     formulario.addEventListener(
@@ -959,9 +990,7 @@ function iniciarFormularioContacto() {
 
                 }
 
-                else if (
-                    !terminos.checked
-                ) {
+                else if (!terminos.checked) {
 
                     terminos.focus();
 
@@ -974,7 +1003,7 @@ function iniciarFormularioContacto() {
 
 
             mensajeExito.textContent =
-                "Mensaje enviado correctamente. Gracias por contactar a GamerZone. Revisaremos tu consulta a la brevedad.";
+                "Consulta registrada correctamente. Gracias por contactar a GamerZone.";
 
 
             mensajeExito.classList.add(
@@ -987,6 +1016,17 @@ function iniciarFormularioContacto() {
 
             contadorCaracteres.textContent =
                 "0";
+
+
+            botonesMotivo.forEach(
+                function (boton) {
+
+                    boton.classList.remove(
+                        "activo"
+                    );
+
+                }
+            );
 
 
             [
@@ -1023,11 +1063,8 @@ function iniciarFormularioContacto() {
 
 
             mensajeExito.scrollIntoView({
-
                 behavior: "smooth",
-
                 block: "center"
-
             });
 
         }

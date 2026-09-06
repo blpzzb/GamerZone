@@ -1,0 +1,780 @@
+/* ================================================= */
+/* GAMERZONE - CONTACTO */
+/* ================================================= */
+
+
+/* ================================================= */
+/* NAVEGACIÓN ACTIVA */
+/* ================================================= */
+
+.nav-activo-contacto {
+    color: #ffffff;
+}
+
+.nav-activo-contacto::after {
+    width: 100%;
+}
+
+
+/* ================================================= */
+/* HERO */
+/* ================================================= */
+
+.contacto-nuevo-hero {
+    min-height: 520px;
+
+    display: flex;
+    align-items: flex-end;
+
+    padding: 95px 8%;
+
+    background:
+        radial-gradient(
+            circle at 82% 25%,
+            rgba(124, 58, 237, 0.17),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 15% 80%,
+            rgba(124, 58, 237, 0.06),
+            transparent 32%
+        ),
+        linear-gradient(
+            135deg,
+            #090909,
+            #101010 65%,
+            #17101d
+        );
+
+    border-bottom: 1px solid #252525;
+}
+
+.contacto-nuevo-hero-contenido {
+    width: 100%;
+    max-width: 1350px;
+
+    margin: auto;
+}
+
+.contacto-etiqueta {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    margin-bottom: 22px;
+
+    color: #a855f7;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 2.4px;
+}
+
+.contacto-etiqueta::before {
+    content: "";
+
+    width: 36px;
+    height: 1px;
+
+    background-color: #a855f7;
+}
+
+.contacto-nuevo-hero h1 {
+    max-width: 900px;
+
+    margin-bottom: 26px;
+
+    font-size: clamp(48px, 5vw, 72px);
+
+    line-height: 1;
+
+    letter-spacing: -2.5px;
+}
+
+.contacto-nuevo-hero h1 span {
+    color: #a855f7;
+}
+
+.contacto-nuevo-hero p {
+    max-width: 680px;
+
+    color: #a8a8a8;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+}
+
+
+/* ================================================= */
+/* ACCESOS RÁPIDOS */
+/* ================================================= */
+
+.contacto-accesos {
+    padding: 80px 8%;
+
+    background-color: #0c0c0c;
+
+    border-bottom: 1px solid #242424;
+}
+
+.contacto-accesos-contenido {
+    max-width: 1350px;
+
+    margin: auto;
+}
+
+.contacto-accesos-cabecera {
+    margin-bottom: 34px;
+}
+
+.contacto-accesos-cabecera h2 {
+    margin-bottom: 10px;
+
+    font-size: 34px;
+}
+
+.contacto-accesos-cabecera p {
+    color: #878787;
+
+    font-size: 14px;
+}
+
+.contacto-accesos-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 15px;
+}
+
+.contacto-acceso {
+    min-height: 155px;
+
+    padding: 25px;
+
+    text-align: left;
+
+    border: 1px solid #2c2c2c;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #151515,
+            #101010
+        );
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.contacto-acceso:hover {
+    transform: translateY(-4px);
+
+    border-color: #593370;
+
+    background:
+        linear-gradient(
+            145deg,
+            #18121a,
+            #111111
+        );
+}
+
+.contacto-acceso.activo {
+    border-color: #7c3aed;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(124, 58, 237, 0.18),
+            rgba(124, 58, 237, 0.06)
+        );
+
+    box-shadow:
+        inset 0 0 0 1px rgba(168, 85, 247, 0.08);
+}
+
+.contacto-acceso-numero {
+    display: block;
+
+    margin-bottom: 28px;
+
+    color: #9952c9;
+
+    font-size: 11px;
+
+    letter-spacing: 1.7px;
+}
+
+.contacto-acceso strong {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 17px;
+}
+
+.contacto-acceso p {
+    color: #858585;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+
+/* ================================================= */
+/* SECCIÓN PRINCIPAL */
+/* ================================================= */
+
+.contacto-nuevo-principal {
+    padding: 105px 8%;
+
+    background-color: #0f0f0f;
+}
+
+.contacto-nuevo-grid {
+    max-width: 1350px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 0.82fr 1.18fr;
+
+    gap: 85px;
+
+    align-items: start;
+}
+
+
+/* ================================================= */
+/* INFORMACIÓN */
+/* ================================================= */
+
+.contacto-nuevo-info {
+    position: sticky;
+
+    top: 125px;
+}
+
+.contacto-nuevo-info h2 {
+    max-width: 500px;
+
+    margin-bottom: 20px;
+
+    font-size: 43px;
+
+    line-height: 1.15;
+}
+
+.contacto-nuevo-info > p {
+    max-width: 510px;
+
+    margin-bottom: 42px;
+
+    color: #929292;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+}
+
+.contacto-info-lista {
+    border-top: 1px solid #303030;
+}
+
+.contacto-info-item {
+    display: grid;
+
+    grid-template-columns: 45px 1fr;
+
+    gap: 18px;
+
+    padding: 23px 0;
+
+    border-bottom: 1px solid #292929;
+}
+
+.contacto-info-numero {
+    color: #9c51cb;
+
+    font-size: 11px;
+
+    letter-spacing: 1.4px;
+}
+
+.contacto-info-item strong {
+    display: block;
+
+    margin-bottom: 5px;
+
+    font-size: 15px;
+}
+
+.contacto-info-item p {
+    color: #7e7e7e;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+/* ================================================= */
+/* FORMULARIO */
+/* ================================================= */
+
+.contacto-formulario-panel {
+    padding: 45px;
+
+    border: 1px solid #2e2e2e;
+
+    border-radius: 14px;
+
+    background:
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(124, 58, 237, 0.08),
+            transparent 28%
+        ),
+        linear-gradient(
+            180deg,
+            #151515,
+            #111111
+        );
+
+    box-shadow:
+        0 28px 70px rgba(0, 0, 0, 0.28);
+}
+
+.contacto-formulario-cabecera {
+    margin-bottom: 38px;
+
+    padding-bottom: 28px;
+
+    border-bottom: 1px solid #2d2d2d;
+}
+
+.contacto-formulario-cabecera h2 {
+    margin-bottom: 9px;
+
+    font-size: 31px;
+}
+
+.contacto-formulario-cabecera p {
+    color: #858585;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* ================================================= */
+/* CAMPOS */
+/* ================================================= */
+
+.contacto-fila {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 18px;
+}
+
+.grupo-formulario {
+    margin-bottom: 23px;
+}
+
+.grupo-formulario label {
+    display: block;
+
+    margin-bottom: 9px;
+
+    color: #d0d0d0;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+.grupo-formulario input,
+.grupo-formulario select,
+.grupo-formulario textarea {
+    width: 100%;
+
+    padding: 14px 15px;
+
+    outline: none;
+
+    border: 1px solid #333333;
+
+    border-radius: 7px;
+
+    background-color: #0c0c0c;
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    transition:
+        border-color 0.25s,
+        box-shadow 0.25s,
+        background-color 0.25s;
+}
+
+.grupo-formulario textarea {
+    min-height: 150px;
+
+    resize: vertical;
+}
+
+.grupo-formulario input::placeholder,
+.grupo-formulario textarea::placeholder {
+    color: #626262;
+}
+
+.grupo-formulario input:focus,
+.grupo-formulario select:focus,
+.grupo-formulario textarea:focus {
+    border-color: #7c3aed;
+
+    background-color: #101010;
+
+    box-shadow:
+        0 0 0 3px rgba(124, 58, 237, 0.1);
+}
+
+
+/* ================================================= */
+/* CONTADOR */
+/* ================================================= */
+
+.contacto-contador {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-top: 7px;
+
+    color: #646464;
+
+    font-size: 11px;
+}
+
+
+/* ================================================= */
+/* CHECKBOX */
+/* ================================================= */
+
+.contacto-checkbox {
+    display: grid;
+
+    grid-template-columns: 19px 1fr;
+
+    gap: 11px;
+
+    align-items: start;
+
+    margin-top: 5px;
+}
+
+.contacto-checkbox input {
+    width: 17px;
+    height: 17px;
+
+    margin-top: 2px;
+
+    accent-color: #7c3aed;
+
+    cursor: pointer;
+}
+
+.contacto-checkbox label {
+    color: #969696;
+
+    font-size: 12px;
+
+    line-height: 1.55;
+
+    cursor: pointer;
+}
+
+
+/* ================================================= */
+/* ERRORES */
+/* ================================================= */
+
+.mensaje-error {
+    display: block;
+
+    min-height: 17px;
+
+    margin-top: 6px;
+
+    color: #ff7474;
+
+    font-size: 11px;
+
+    line-height: 1.4;
+}
+
+.campo-error {
+    border-color: #b94a4a !important;
+
+    box-shadow:
+        0 0 0 3px rgba(185, 74, 74, 0.08) !important;
+}
+
+.campo-correcto {
+    border-color: #4a9a68 !important;
+}
+
+
+/* ================================================= */
+/* BOTÓN ENVIAR */
+/* ================================================= */
+
+.boton-enviar {
+    width: 100%;
+
+    margin-top: 28px;
+
+    padding: 16px 20px;
+
+    border: 1px solid #8240b4;
+
+    border-radius: 8px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7130cc,
+            #943ce3
+        );
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.boton-enviar:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 30px rgba(124, 58, 237, 0.26);
+}
+
+
+/* ================================================= */
+/* MENSAJE DE ÉXITO */
+/* ================================================= */
+
+.mensaje-exito {
+    display: none;
+
+    margin-top: 22px;
+
+    padding: 15px 17px;
+
+    border: 1px solid #386548;
+
+    border-radius: 7px;
+
+    background-color: rgba(48, 110, 70, 0.12);
+
+    color: #7ac994;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+.mensaje-exito.activo {
+    display: block;
+}
+
+
+/* ================================================= */
+/* CTA FINAL */
+/* ================================================= */
+
+.contacto-nuevo-cta {
+    padding: 115px 8%;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(124, 58, 237, 0.16),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #0c0c0c,
+            #1b1022
+        );
+}
+
+.contacto-nuevo-cta-contenido {
+    max-width: 820px;
+
+    margin: auto;
+}
+
+.contacto-nuevo-cta h2 {
+    margin-bottom: 18px;
+
+    font-size: 46px;
+
+    line-height: 1.14;
+}
+
+.contacto-nuevo-cta p {
+    max-width: 630px;
+
+    margin: 0 auto 30px;
+
+    color: #929292;
+
+    font-size: 15px;
+
+    line-height: 1.75;
+}
+
+.contacto-boton-catalogo {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 14px 24px;
+
+    border: 1px solid #5a356f;
+
+    border-radius: 7px;
+
+    background-color: rgba(124, 58, 237, 0.09);
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.contacto-boton-catalogo:hover {
+    transform: translateY(-2px);
+
+    background-color: rgba(124, 58, 237, 0.16);
+}
+
+
+/* ================================================= */
+/* RESPONSIVE */
+/* ================================================= */
+
+@media (max-width: 1050px) {
+
+    .contacto-accesos-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contacto-nuevo-grid {
+        gap: 50px;
+    }
+
+}
+
+
+@media (max-width: 768px) {
+
+    .contacto-nuevo-hero {
+        min-height: auto;
+
+        padding: 75px 7%;
+    }
+
+    .contacto-nuevo-hero h1 {
+        font-size: 43px;
+    }
+
+    .contacto-nuevo-hero p {
+        font-size: 15px;
+    }
+
+
+    .contacto-accesos {
+        padding: 65px 7%;
+    }
+
+    .contacto-accesos-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .contacto-nuevo-principal {
+        padding: 75px 7%;
+    }
+
+    .contacto-nuevo-grid {
+        grid-template-columns: 1fr;
+
+        gap: 55px;
+    }
+
+    .contacto-nuevo-info {
+        position: static;
+    }
+
+    .contacto-nuevo-info h2 {
+        font-size: 35px;
+    }
+
+
+    .contacto-formulario-panel {
+        padding: 30px 22px;
+    }
+
+    .contacto-fila {
+        grid-template-columns: 1fr;
+    }
+
+
+    .contacto-nuevo-cta {
+        padding: 80px 7%;
+    }
+
+    .contacto-nuevo-cta h2 {
+        font-size: 36px;
+    }
+
+}
