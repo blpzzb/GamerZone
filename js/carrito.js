@@ -47,6 +47,9 @@ function iniciarCarrito() {
     const notificacion =
         document.getElementById("notificacionCarrito");
 
+    const botonContinuar =
+        document.querySelector(".carrito-continuar");
+
     const botonesAgregar =
         document.querySelectorAll(
             ".boton-agregar-carrito"
@@ -77,6 +80,18 @@ function iniciarCarrito() {
     let carrito = [];
 
     let temporizadorNotificacion;
+
+
+    /* ================================================= */
+    /* ENLACE HACIA CHECKOUT */
+    /* ================================================= */
+
+    if (botonContinuar) {
+
+        botonContinuar.href =
+            "checkout.html";
+
+    }
 
 
     /* ================================================= */
@@ -217,7 +232,7 @@ function iniciarCarrito() {
 
     /* ================================================= */
     /* FORMATEAR PRECIO */
-/* ================================================= */
+    /* ================================================= */
 
     function formatearPrecio(valor) {
 
@@ -237,7 +252,7 @@ function iniciarCarrito() {
 
     /* ================================================= */
     /* GUARDAR CARRITO */
-/* ================================================= */
+    /* ================================================= */
 
     function guardarCarrito() {
 
@@ -269,7 +284,7 @@ function iniciarCarrito() {
 
     /* ================================================= */
     /* CARGAR CARRITO */
-/* ================================================= */
+    /* ================================================= */
 
     function cargarCarrito() {
 
@@ -713,17 +728,9 @@ function iniciarCarrito() {
         );
 
 
-        /* --------------------------------------------- */
-        /* CONTADOR DEL HEADER */
-        /* --------------------------------------------- */
-
         contador.textContent =
             cantidadTotal;
 
-
-        /* --------------------------------------------- */
-        /* RESUMEN */
-        /* --------------------------------------------- */
 
         cantidadResumen.textContent =
             `${cantidadTotal} producto${cantidadTotal !== 1 ? "s" : ""}`;
@@ -735,10 +742,6 @@ function iniciarCarrito() {
             );
 
 
-        /* --------------------------------------------- */
-        /* ESTADO VACÍO */
-        /* --------------------------------------------- */
-
         carritoVacio.hidden =
             carrito.length !== 0;
 
@@ -747,12 +750,38 @@ function iniciarCarrito() {
             carrito.length === 0;
 
 
-        /* --------------------------------------------- */
-        /* BOTÓN VACIAR */
-        /* --------------------------------------------- */
-
         botonVaciar.disabled =
             carrito.length === 0;
+
+
+        if (botonContinuar) {
+
+            if (carrito.length === 0) {
+
+                botonContinuar.classList.add(
+                    "carrito-continuar-deshabilitado"
+                );
+
+                botonContinuar.setAttribute(
+                    "aria-disabled",
+                    "true"
+                );
+
+            }
+
+            else {
+
+                botonContinuar.classList.remove(
+                    "carrito-continuar-deshabilitado"
+                );
+
+                botonContinuar.removeAttribute(
+                    "aria-disabled"
+                );
+
+            }
+
+        }
 
     }
 
@@ -906,6 +935,32 @@ function iniciarCarrito() {
 
 
     /* ================================================= */
+    /* IR AL CHECKOUT */
+    /* ================================================= */
+
+    if (botonContinuar) {
+
+        botonContinuar.addEventListener(
+            "click",
+            function (evento) {
+
+                if (
+                    carrito.length === 0
+                ) {
+
+                    evento.preventDefault();
+
+                    return;
+
+                }
+
+            }
+        );
+
+    }
+
+
+    /* ================================================= */
     /* VACIAR */
     /* ================================================= */
 
@@ -939,7 +994,7 @@ function iniciarCarrito() {
 
 
     /* ================================================= */
-    /* INICIAR CARRITO GUARDADO */
+    /* INICIAR CARRITO */
     /* ================================================= */
 
     cargarCarrito();
