@@ -4,55 +4,31 @@
 <head>
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta
         name="description"
-        content="Catálogo GamerZone de computadores, componentes, periféricos y accesorios gamer."
+        content="Catálogo GamerZone con computadores, periféricos, monitores, componentes y accesorios gamer."
     >
 
     <title>Productos | GamerZone</title>
 
-    <link
-        rel="stylesheet"
-        href="css/estilos.css"
-    >
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
 
 <body>
 
-    <!-- ===================================== -->
-    <!-- HEADER -->
-    <!-- ===================================== -->
-
     <header>
 
-        <a
-            href="index.html"
-            class="logo-gamerzone"
-        >
+        <a href="index.html" class="logo-gamerzone">
             GamerZone
         </a>
 
         <nav>
-            <a href="index.html">
-                Inicio
-            </a>
-
-            <a href="productos.html">
-                Productos
-            </a>
-
-            <a href="nosotros.html">
-                Nosotros
-            </a>
-
-            <a href="contacto.html">
-                Contacto
-            </a>
+            <a href="index.html">Inicio</a>
+            <a href="productos.html">Productos</a>
+            <a href="nosotros.html">Nosotros</a>
+            <a href="contacto.html">Contacto</a>
         </nav>
 
     </header>
@@ -60,9 +36,9 @@
 
     <main>
 
-        <!-- ===================================== -->
-        <!-- PORTADA CATÁLOGO -->
-        <!-- ===================================== -->
+        <!-- ========================================= -->
+        <!-- PORTADA -->
+        <!-- ========================================= -->
 
         <section class="catalogo-portada">
 
@@ -79,10 +55,11 @@
 
                 <p>
                     Explora computadores, componentes y periféricos
-                    seleccionados para diferentes tipos de setup.
+                    seleccionados para mejorar tu experiencia de juego.
                 </p>
 
             </div>
+
 
             <div class="catalogo-portada-dato">
 
@@ -99,17 +76,97 @@
         </section>
 
 
-        <!-- ===================================== -->
-        <!-- NAVEGACIÓN DE CATEGORÍAS -->
-        <!-- ===================================== -->
+        <!-- ========================================= -->
+        <!-- BUSCADOR -->
+        <!-- ========================================= -->
+
+        <section class="buscador-productos">
+
+            <div class="buscador-productos-contenido">
+
+                <div class="buscador-titulo">
+
+                    <span class="etiqueta-seccion">
+                        BUSCAR
+                    </span>
+
+                    <h2>
+                        Encuentra tu próximo upgrade
+                    </h2>
+
+                    <p>
+                        Busca por nombre, categoría o tipo de producto.
+                    </p>
+
+                </div>
+
+
+                <div class="buscador-campo">
+
+                    <label for="buscadorProducto">
+                        Buscar en GamerZone
+                    </label>
+
+
+                    <form
+                        id="formularioBusqueda"
+                        class="buscador-input-contenedor"
+                    >
+
+                        <input
+                            type="search"
+                            id="buscadorProducto"
+                            placeholder="Ej: teclado, mouse, monitor, GPU..."
+                            autocomplete="off"
+                        >
+
+
+                        <button
+                            type="submit"
+                            class="boton-limpiar-busqueda"
+                        >
+                            Buscar
+                        </button>
+
+
+                        <button
+                            type="button"
+                            id="botonLimpiarBusqueda"
+                            class="boton-limpiar-busqueda"
+                        >
+                            Limpiar
+                        </button>
+
+                    </form>
+
+
+                    <p
+                        id="resultadoBusqueda"
+                        class="resultado-busqueda"
+                        aria-live="polite"
+                    >
+                        Mostrando los 8 productos
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================= -->
+        <!-- CATEGORÍAS -->
+        <!-- ========================================= -->
 
         <section class="catalogo-categorias">
 
             <div class="catalogo-categorias-interior">
 
                 <span class="catalogo-categorias-titulo">
-                    Explorar por categoría
+                    Categorías
                 </span>
+
 
                 <div class="catalogo-categorias-links">
 
@@ -140,9 +197,9 @@
         </section>
 
 
-        <!-- ===================================== -->
+        <!-- ========================================= -->
         <!-- PRODUCTO DESTACADO -->
-        <!-- ===================================== -->
+        <!-- ========================================= -->
 
         <section
             class="producto-principal"
@@ -153,7 +210,7 @@
 
                 <img
                     src="img/pc-gamer.jpg"
-                    alt="Computador Gamer RGB Pro"
+                    alt="PC Gamer RGB Pro"
                 >
 
             </div>
@@ -162,58 +219,37 @@
             <div class="producto-principal-contenido">
 
                 <span class="etiqueta-seccion">
-                    EQUIPO DESTACADO
+                    PRODUCTO DESTACADO
                 </span>
+
 
                 <h2>
                     PC Gamer RGB Pro
                 </h2>
 
+
                 <p class="producto-principal-descripcion">
-                    Un equipo pensado para quienes buscan una base
-                    sólida para jugar, realizar streaming y trabajar
-                    con aplicaciones de alto rendimiento.
+                    Una configuración pensada para gaming,
+                    streaming y uso intensivo, combinando
+                    rendimiento con un diseño RGB moderno.
                 </p>
 
 
                 <div class="producto-principal-detalles">
 
                     <div>
-
-                        <span>
-                            TIPO
-                        </span>
-
-                        <strong>
-                            PC Gamer
-                        </strong>
-
+                        <span>TIPO</span>
+                        <strong>PC Gamer</strong>
                     </div>
 
-
                     <div>
-
-                        <span>
-                            ENFOQUE
-                        </span>
-
-                        <strong>
-                            Gaming y streaming
-                        </strong>
-
+                        <span>ENFOQUE</span>
+                        <strong>Gaming y streaming</strong>
                     </div>
 
-
                     <div>
-
-                        <span>
-                            DISEÑO
-                        </span>
-
-                        <strong>
-                            Iluminación RGB
-                        </strong>
-
+                        <span>DISEÑO</span>
+                        <strong>Iluminación RGB</strong>
                     </div>
 
                 </div>
@@ -239,9 +275,9 @@
         </section>
 
 
-        <!-- ===================================== -->
+        <!-- ========================================= -->
         <!-- CATÁLOGO -->
-        <!-- ===================================== -->
+        <!-- ========================================= -->
 
         <section
             class="catalogo-productos"
@@ -262,22 +298,27 @@
 
                 </div>
 
+
                 <p>
-                    Una selección de productos para comenzar
-                    o actualizar tu setup.
+                    Periféricos, hardware y accesorios seleccionados
+                    para completar tu setup.
                 </p>
 
             </div>
 
 
-            <div class="catalogo-grid">
+            <div
+                class="catalogo-grid"
+                id="listaProductos"
+            >
 
-
-                <!-- ================================= -->
                 <!-- TECLADO -->
-                <!-- ================================= -->
 
-                <article class="catalogo-producto">
+                <article
+                    class="catalogo-producto"
+                    data-nombre="teclado mecanico rgb"
+                    data-categoria="perifericos teclado"
+                >
 
                     <div class="catalogo-producto-imagen">
 
@@ -287,7 +328,7 @@
 
                         <img
                             src="img/teclado.jpg"
-                            alt="Teclado Mecánico RGB"
+                            alt="Teclado mecánico RGB"
                         >
 
                     </div>
@@ -296,7 +337,7 @@
                     <div class="catalogo-producto-info">
 
                         <span class="categoria">
-                            TECLADOS
+                            PERIFÉRICOS
                         </span>
 
                         <h3>
@@ -304,9 +345,8 @@
                         </h3>
 
                         <p>
-                            Switches mecánicos e iluminación RGB
-                            para una respuesta precisa y una mejor
-                            experiencia de juego.
+                            Teclado mecánico diseñado para ofrecer
+                            precisión y respuesta rápida.
                         </p>
 
 
@@ -327,17 +367,19 @@
                 </article>
 
 
-                <!-- ================================= -->
                 <!-- MOUSE -->
-                <!-- ================================= -->
 
-                <article class="catalogo-producto">
+                <article
+                    class="catalogo-producto"
+                    data-nombre="mouse gamer rgb"
+                    data-categoria="perifericos mouse"
+                >
 
                     <div class="catalogo-producto-imagen">
 
                         <img
                             src="img/mouse.jpg"
-                            alt="Mouse Gamer RGB"
+                            alt="Mouse gamer RGB"
                         >
 
                     </div>
@@ -346,7 +388,7 @@
                     <div class="catalogo-producto-info">
 
                         <span class="categoria">
-                            MOUSE
+                            PERIFÉRICOS
                         </span>
 
                         <h3>
@@ -354,8 +396,8 @@
                         </h3>
 
                         <p>
-                            Diseño ergonómico y sensor de alta precisión
-                            para movimientos rápidos y controlados.
+                            Diseño ergonómico y respuesta precisa
+                            para sesiones de juego prolongadas.
                         </p>
 
 
@@ -376,17 +418,19 @@
                 </article>
 
 
-                <!-- ================================= -->
                 <!-- AUDÍFONOS -->
-                <!-- ================================= -->
 
-                <article class="catalogo-producto">
+                <article
+                    class="catalogo-producto"
+                    data-nombre="audifonos gamer headset audio"
+                    data-categoria="perifericos audio audifonos"
+                >
 
                     <div class="catalogo-producto-imagen">
 
                         <img
                             src="img/audifonos.jpg"
-                            alt="Audífonos Gamer"
+                            alt="Audífonos gamer"
                         >
 
                     </div>
@@ -403,8 +447,8 @@
                         </h3>
 
                         <p>
-                            Sonido envolvente y micrófono integrado
-                            para jugar y comunicarte con tu equipo.
+                            Audio envolvente y diseño cómodo para
+                            gaming, comunicación y multimedia.
                         </p>
 
 
@@ -425,13 +469,13 @@
                 </article>
 
 
-                <!-- ================================= -->
                 <!-- MONITOR -->
-                <!-- ================================= -->
 
                 <article
                     class="catalogo-producto"
                     id="monitores"
+                    data-nombre="monitor gamer 165 hz pantalla"
+                    data-categoria="monitor monitores pantalla"
                 >
 
                     <div class="catalogo-producto-imagen">
@@ -460,7 +504,7 @@
 
                         <p>
                             Alta frecuencia de actualización para
-                            movimientos más fluidos durante cada partida.
+                            una experiencia de juego más fluida.
                         </p>
 
 
@@ -481,13 +525,13 @@
                 </article>
 
 
-                <!-- ================================= -->
                 <!-- SILLA -->
-                <!-- ================================= -->
 
                 <article
                     class="catalogo-producto"
                     id="accesorios"
+                    data-nombre="silla gamer pro"
+                    data-categoria="accesorios silla"
                 >
 
                     <div class="catalogo-producto-imagen">
@@ -503,7 +547,7 @@
                     <div class="catalogo-producto-info">
 
                         <span class="categoria">
-                            MOBILIARIO
+                            ACCESORIOS
                         </span>
 
                         <h3>
@@ -511,9 +555,8 @@
                         </h3>
 
                         <p>
-                            Diseño ergonómico con respaldo ajustable
-                            para mejorar la comodidad durante sesiones
-                            prolongadas.
+                            Comodidad y soporte para largas
+                            sesiones frente al computador.
                         </p>
 
 
@@ -534,11 +577,13 @@
                 </article>
 
 
-                <!-- ================================= -->
                 <!-- CONTROL -->
-                <!-- ================================= -->
 
-                <article class="catalogo-producto">
+                <article
+                    class="catalogo-producto"
+                    data-nombre="control gamer pro joystick mando"
+                    data-categoria="accesorios control joystick"
+                >
 
                     <div class="catalogo-producto-imagen">
 
@@ -553,7 +598,7 @@
                     <div class="catalogo-producto-info">
 
                         <span class="categoria">
-                            CONTROLES
+                            ACCESORIOS
                         </span>
 
                         <h3>
@@ -561,8 +606,8 @@
                         </h3>
 
                         <p>
-                            Control inalámbrico con diseño ergonómico
-                            para disfrutar diferentes estilos de juego.
+                            Control diseñado para entregar comodidad
+                            y precisión en cada partida.
                         </p>
 
 
@@ -583,13 +628,13 @@
                 </article>
 
 
-                <!-- ================================= -->
                 <!-- GPU -->
-                <!-- ================================= -->
 
                 <article
                     class="catalogo-producto"
                     id="componentes"
+                    data-nombre="tarjeta grafica gamer gpu"
+                    data-categoria="componentes hardware gpu tarjeta grafica"
                 >
 
                     <div class="catalogo-producto-imagen">
@@ -617,9 +662,8 @@
                         </h3>
 
                         <p>
-                            Potencia gráfica para videojuegos modernos,
-                            contenido multimedia y experiencias en alta
-                            resolución.
+                            Potencia gráfica para mejorar rendimiento,
+                            calidad visual y FPS.
                         </p>
 
 
@@ -640,11 +684,13 @@
                 </article>
 
 
-                <!-- ================================= -->
                 <!-- PC GAMER -->
-                <!-- ================================= -->
 
-                <article class="catalogo-producto">
+                <article
+                    class="catalogo-producto"
+                    data-nombre="pc gamer rgb pro computador"
+                    data-categoria="pc gamer computador hardware"
+                >
 
                     <div class="catalogo-producto-imagen">
 
@@ -671,8 +717,8 @@
                         </h3>
 
                         <p>
-                            Equipo de alto rendimiento preparado para
-                            gaming, creación de contenido y streaming.
+                            Equipo completo orientado a gaming,
+                            streaming y rendimiento avanzado.
                         </p>
 
 
@@ -694,37 +740,61 @@
 
             </div>
 
+
+            <!-- ================================= -->
+            <!-- SIN RESULTADOS -->
+            <!-- ================================= -->
+
+            <div
+                class="sin-resultados"
+                id="sinResultados"
+                hidden
+            >
+
+                <span class="sin-resultados-icono">
+                    ?
+                </span>
+
+                <h3>
+                    No encontramos productos
+                </h3>
+
+                <p>
+                    Intenta buscar “mouse”, “monitor”,
+                    “GPU”, “teclado” o “PC”.
+                </p>
+
+            </div>
+
         </section>
 
 
-        <!-- ===================================== -->
-        <!-- BLOQUE DE ASESORÍA -->
-        <!-- ===================================== -->
+        <!-- ========================================= -->
+        <!-- AYUDA -->
+        <!-- ========================================= -->
 
         <section class="catalogo-ayuda">
 
             <div class="catalogo-ayuda-contenido">
 
                 <span class="etiqueta-seccion">
-                    ANTES DE ELEGIR
+                    ¿NECESITAS AYUDA?
                 </span>
 
                 <h2>
-                    Un buen upgrade comienza
-                    por saber qué necesitas.
+                    Un buen upgrade comienza por saber qué necesitas.
                 </h2>
 
                 <p>
-                    Si tienes dudas sobre componentes,
-                    periféricos o compatibilidad, puedes
-                    enviarnos una consulta antes de decidir.
+                    Si tienes dudas sobre qué producto elegir,
+                    puedes enviarnos tu consulta.
                 </p>
 
                 <a
                     href="contacto.html"
                     class="boton-principal"
                 >
-                    Solicitar orientación
+                    Hablar con GamerZone
                 </a>
 
             </div>
@@ -733,10 +803,6 @@
 
     </main>
 
-
-    <!-- ===================================== -->
-    <!-- FOOTER -->
-    <!-- ===================================== -->
 
     <footer>
 
@@ -752,21 +818,10 @@
 
         <div class="footer-navegacion">
 
-            <a href="index.html">
-                Inicio
-            </a>
-
-            <a href="productos.html">
-                Productos
-            </a>
-
-            <a href="nosotros.html">
-                Nosotros
-            </a>
-
-            <a href="contacto.html">
-                Contacto
-            </a>
+            <a href="index.html">Inicio</a>
+            <a href="productos.html">Productos</a>
+            <a href="nosotros.html">Nosotros</a>
+            <a href="contacto.html">Contacto</a>
 
         </div>
 
