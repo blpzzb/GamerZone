@@ -2,9 +2,13 @@
 <html lang="es">
 
 <head>
+
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <meta
         name="description"
@@ -13,32 +17,75 @@
 
     <title>Productos | GamerZone</title>
 
-    <link rel="stylesheet" href="css/estilos.css">
+
+    <!-- ESTILOS GENERALES -->
+
+    <link
+        rel="stylesheet"
+        href="css/estilos.css"
+    >
+
+
+    <!-- ESTILOS EXCLUSIVOS DEL CATÁLOGO -->
+
+    <link
+        rel="stylesheet"
+        href="css/productos.css"
+    >
+
 </head>
+
 
 <body>
 
+
+    <!-- ================================================= -->
+    <!-- HEADER -->
+    <!-- ================================================= -->
+
     <header>
 
-        <a href="index.html" class="logo-gamerzone">
+        <a
+            href="index.html"
+            class="logo-gamerzone"
+        >
             GamerZone
         </a>
 
+
         <nav>
-            <a href="index.html">Inicio</a>
-            <a href="productos.html">Productos</a>
-            <a href="nosotros.html">Nosotros</a>
-            <a href="contacto.html">Contacto</a>
+
+            <a href="index.html">
+                Inicio
+            </a>
+
+            <a
+                href="productos.html"
+                class="nav-activo-productos"
+            >
+                Productos
+            </a>
+
+            <a href="nosotros.html">
+                Nosotros
+            </a>
+
+            <a href="contacto.html">
+                Contacto
+            </a>
+
         </nav>
 
     </header>
 
 
+
     <main>
 
-        <!-- ========================================= -->
+
+        <!-- ================================================= -->
         <!-- PORTADA -->
-        <!-- ========================================= -->
+        <!-- ================================================= -->
 
         <section class="catalogo-portada">
 
@@ -48,10 +95,12 @@
                     CATÁLOGO GAMERZONE
                 </span>
 
+
                 <h1>
                     Equipa tu espacio.
                     Mejora tu rendimiento.
                 </h1>
+
 
                 <p>
                     Explora computadores, componentes y periféricos
@@ -76,130 +125,216 @@
         </section>
 
 
-        <!-- ========================================= -->
-        <!-- BUSCADOR -->
-        <!-- ========================================= -->
 
-        <section class="buscador-productos">
+        <!-- ================================================= -->
+        <!-- BÚSQUEDA Y FILTROS -->
+        <!-- ================================================= -->
 
-            <div class="buscador-productos-contenido">
+        <section class="zona-catalogo-control">
 
-                <div class="buscador-titulo">
+            <div class="zona-catalogo-control-interior">
 
-                    <span class="etiqueta-seccion">
-                        BUSCAR
-                    </span>
 
-                    <h2>
-                        Encuentra tu próximo upgrade
-                    </h2>
+                <!-- BUSCADOR -->
 
-                    <p>
-                        Busca por nombre, categoría o tipo de producto.
-                    </p>
+                <div class="buscador-productos">
+
+
+                    <div class="buscador-titulo">
+
+                        <span class="etiqueta-seccion">
+                            BUSCAR
+                        </span>
+
+                        <h2>
+                            Encuentra tu próximo upgrade
+                        </h2>
+
+                        <p>
+                            Busca por nombre, categoría
+                            o tipo de producto.
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="buscador-campo">
+
+                        <label for="buscadorProducto">
+                            Buscar en GamerZone
+                        </label>
+
+
+                        <form
+                            id="formularioBusqueda"
+                            class="buscador-input-contenedor"
+                        >
+
+                            <input
+                                type="search"
+                                id="buscadorProducto"
+                                placeholder="Ej: teclado, mouse, monitor, GPU..."
+                                autocomplete="off"
+                            >
+
+
+                            <button
+                                type="submit"
+                                class="boton-buscar-producto"
+                            >
+                                Buscar
+                            </button>
+
+
+                            <button
+                                type="button"
+                                id="botonLimpiarBusqueda"
+                                class="boton-limpiar-busqueda"
+                            >
+                                Limpiar
+                            </button>
+
+                        </form>
+
+
+                        <p
+                            id="resultadoBusqueda"
+                            class="resultado-busqueda"
+                            aria-live="polite"
+                        >
+                            Mostrando los 8 productos
+                        </p>
+
+                    </div>
 
                 </div>
 
 
-                <div class="buscador-campo">
 
-                    <label for="buscadorProducto">
-                        Buscar en GamerZone
-                    </label>
+                <!-- FILTROS -->
+
+                <div class="filtros-catalogo">
+
+                    <div class="filtros-catalogo-encabezado">
+
+                        <div>
+
+                            <span class="etiqueta-seccion">
+                                FILTRAR
+                            </span>
+
+                            <h3>
+                                Explora por categoría
+                            </h3>
+
+                        </div>
 
 
-                    <form
-                        id="formularioBusqueda"
-                        class="buscador-input-contenedor"
+                        <span class="filtros-ayuda">
+                            Selecciona una categoría
+                        </span>
+
+                    </div>
+
+
+
+                    <div
+                        class="filtros-botones"
+                        id="filtrosProductos"
                     >
 
-                        <input
-                            type="search"
-                            id="buscadorProducto"
-                            placeholder="Ej: teclado, mouse, monitor, GPU..."
-                            autocomplete="off"
-                        >
-
-
                         <button
-                            type="submit"
-                            class="boton-limpiar-busqueda"
+                            type="button"
+                            class="filtro-producto activo"
+                            data-filtro="todos"
                         >
-                            Buscar
+                            Todos
+
+                            <span>
+                                8
+                            </span>
                         </button>
 
 
                         <button
                             type="button"
-                            id="botonLimpiarBusqueda"
-                            class="boton-limpiar-busqueda"
+                            class="filtro-producto"
+                            data-filtro="perifericos"
                         >
-                            Limpiar
+                            Periféricos
+
+                            <span>
+                                3
+                            </span>
                         </button>
 
-                    </form>
+
+                        <button
+                            type="button"
+                            class="filtro-producto"
+                            data-filtro="monitores"
+                        >
+                            Monitores
+
+                            <span>
+                                1
+                            </span>
+                        </button>
 
 
-                    <p
-                        id="resultadoBusqueda"
-                        class="resultado-busqueda"
-                        aria-live="polite"
-                    >
-                        Mostrando los 8 productos
-                    </p>
+                        <button
+                            type="button"
+                            class="filtro-producto"
+                            data-filtro="componentes"
+                        >
+                            Componentes
+
+                            <span>
+                                1
+                            </span>
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="filtro-producto"
+                            data-filtro="pc-gamer"
+                        >
+                            PC Gamer
+
+                            <span>
+                                1
+                            </span>
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="filtro-producto"
+                            data-filtro="accesorios"
+                        >
+                            Accesorios
+
+                            <span>
+                                2
+                            </span>
+                        </button>
+
+                    </div>
 
                 </div>
+
 
             </div>
 
         </section>
 
 
-        <!-- ========================================= -->
-        <!-- CATEGORÍAS -->
-        <!-- ========================================= -->
 
-        <section class="catalogo-categorias">
-
-            <div class="catalogo-categorias-interior">
-
-                <span class="catalogo-categorias-titulo">
-                    Categorías
-                </span>
-
-
-                <div class="catalogo-categorias-links">
-
-                    <a href="#perifericos">
-                        Periféricos
-                    </a>
-
-                    <a href="#monitores">
-                        Monitores
-                    </a>
-
-                    <a href="#componentes">
-                        Componentes
-                    </a>
-
-                    <a href="#pc-gamer">
-                        PC Gamer
-                    </a>
-
-                    <a href="#accesorios">
-                        Accesorios
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ========================================= -->
+        <!-- ================================================= -->
         <!-- PRODUCTO DESTACADO -->
-        <!-- ========================================= -->
+        <!-- ================================================= -->
 
         <section
             class="producto-principal"
@@ -214,6 +349,7 @@
                 >
 
             </div>
+
 
 
             <div class="producto-principal-contenido">
@@ -235,24 +371,49 @@
                 </p>
 
 
+
                 <div class="producto-principal-detalles">
 
                     <div>
-                        <span>TIPO</span>
-                        <strong>PC Gamer</strong>
+
+                        <span>
+                            TIPO
+                        </span>
+
+                        <strong>
+                            PC Gamer
+                        </strong>
+
                     </div>
 
-                    <div>
-                        <span>ENFOQUE</span>
-                        <strong>Gaming y streaming</strong>
-                    </div>
 
                     <div>
-                        <span>DISEÑO</span>
-                        <strong>Iluminación RGB</strong>
+
+                        <span>
+                            ENFOQUE
+                        </span>
+
+                        <strong>
+                            Gaming y streaming
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            DISEÑO
+                        </span>
+
+                        <strong>
+                            Iluminación RGB
+                        </strong>
+
                     </div>
 
                 </div>
+
 
 
                 <div class="producto-principal-compra">
@@ -260,6 +421,7 @@
                     <strong class="precio-destacado">
                         $1.199.990
                     </strong>
+
 
                     <a
                         href="contacto.html"
@@ -275,14 +437,13 @@
         </section>
 
 
-        <!-- ========================================= -->
-        <!-- CATÁLOGO -->
-        <!-- ========================================= -->
 
-        <section
-            class="catalogo-productos"
-            id="perifericos"
-        >
+        <!-- ================================================= -->
+        <!-- CATÁLOGO -->
+        <!-- ================================================= -->
+
+        <section class="catalogo-productos">
+
 
             <div class="catalogo-encabezado">
 
@@ -300,11 +461,12 @@
 
 
                 <p>
-                    Periféricos, hardware y accesorios seleccionados
-                    para completar tu setup.
+                    Utiliza la búsqueda o los filtros para
+                    encontrar exactamente lo que necesitas.
                 </p>
 
             </div>
+
 
 
             <div
@@ -312,12 +474,15 @@
                 id="listaProductos"
             >
 
+
+                <!-- ================================================= -->
                 <!-- TECLADO -->
+                <!-- ================================================= -->
 
                 <article
                     class="catalogo-producto"
                     data-nombre="teclado mecanico rgb"
-                    data-categoria="perifericos teclado"
+                    data-categoria="perifericos"
                 >
 
                     <div class="catalogo-producto-imagen">
@@ -328,7 +493,7 @@
 
                         <img
                             src="img/teclado.jpg"
-                            alt="Teclado mecánico RGB"
+                            alt="Teclado Mecánico RGB"
                         >
 
                     </div>
@@ -340,13 +505,15 @@
                             PERIFÉRICOS
                         </span>
 
+
                         <h3>
                             Teclado Mecánico RGB
                         </h3>
 
+
                         <p>
-                            Teclado mecánico diseñado para ofrecer
-                            precisión y respuesta rápida.
+                            Teclado mecánico diseñado para
+                            ofrecer precisión y respuesta rápida.
                         </p>
 
 
@@ -355,6 +522,7 @@
                             <strong>
                                 $59.990
                             </strong>
+
 
                             <a href="contacto.html">
                                 Consultar →
@@ -367,19 +535,22 @@
                 </article>
 
 
+
+                <!-- ================================================= -->
                 <!-- MOUSE -->
+                <!-- ================================================= -->
 
                 <article
                     class="catalogo-producto"
                     data-nombre="mouse gamer rgb"
-                    data-categoria="perifericos mouse"
+                    data-categoria="perifericos"
                 >
 
                     <div class="catalogo-producto-imagen">
 
                         <img
                             src="img/mouse.jpg"
-                            alt="Mouse gamer RGB"
+                            alt="Mouse Gamer RGB"
                         >
 
                     </div>
@@ -391,9 +562,11 @@
                             PERIFÉRICOS
                         </span>
 
+
                         <h3>
                             Mouse Gamer RGB
                         </h3>
+
 
                         <p>
                             Diseño ergonómico y respuesta precisa
@@ -407,6 +580,7 @@
                                 $29.990
                             </strong>
 
+
                             <a href="contacto.html">
                                 Consultar →
                             </a>
@@ -418,19 +592,22 @@
                 </article>
 
 
+
+                <!-- ================================================= -->
                 <!-- AUDÍFONOS -->
+                <!-- ================================================= -->
 
                 <article
                     class="catalogo-producto"
                     data-nombre="audifonos gamer headset audio"
-                    data-categoria="perifericos audio audifonos"
+                    data-categoria="perifericos"
                 >
 
                     <div class="catalogo-producto-imagen">
 
                         <img
                             src="img/audifonos.jpg"
-                            alt="Audífonos gamer"
+                            alt="Audífonos Gamer"
                         >
 
                     </div>
@@ -439,16 +616,18 @@
                     <div class="catalogo-producto-info">
 
                         <span class="categoria">
-                            AUDIO
+                            PERIFÉRICOS / AUDIO
                         </span>
+
 
                         <h3>
                             Audífonos Gamer
                         </h3>
 
+
                         <p>
-                            Audio envolvente y diseño cómodo para
-                            gaming, comunicación y multimedia.
+                            Audio envolvente y diseño cómodo
+                            para gaming y comunicación.
                         </p>
 
 
@@ -458,6 +637,7 @@
                                 $49.990
                             </strong>
 
+
                             <a href="contacto.html">
                                 Consultar →
                             </a>
@@ -469,13 +649,16 @@
                 </article>
 
 
+
+                <!-- ================================================= -->
                 <!-- MONITOR -->
+                <!-- ================================================= -->
 
                 <article
                     class="catalogo-producto"
                     id="monitores"
                     data-nombre="monitor gamer 165 hz pantalla"
-                    data-categoria="monitor monitores pantalla"
+                    data-categoria="monitores"
                 >
 
                     <div class="catalogo-producto-imagen">
@@ -483,6 +666,7 @@
                         <span class="producto-etiqueta">
                             165 HZ
                         </span>
+
 
                         <img
                             src="img/monitor.jpg"
@@ -498,13 +682,15 @@
                             MONITORES
                         </span>
 
+
                         <h3>
                             Monitor Gamer 165 Hz
                         </h3>
 
+
                         <p>
-                            Alta frecuencia de actualización para
-                            una experiencia de juego más fluida.
+                            Alta frecuencia de actualización
+                            para una experiencia más fluida.
                         </p>
 
 
@@ -513,6 +699,7 @@
                             <strong>
                                 $199.990
                             </strong>
+
 
                             <a href="contacto.html">
                                 Consultar →
@@ -525,13 +712,16 @@
                 </article>
 
 
+
+                <!-- ================================================= -->
                 <!-- SILLA -->
+                <!-- ================================================= -->
 
                 <article
                     class="catalogo-producto"
                     id="accesorios"
                     data-nombre="silla gamer pro"
-                    data-categoria="accesorios silla"
+                    data-categoria="accesorios"
                 >
 
                     <div class="catalogo-producto-imagen">
@@ -550,9 +740,11 @@
                             ACCESORIOS
                         </span>
 
+
                         <h3>
                             Silla Gamer Pro
                         </h3>
+
 
                         <p>
                             Comodidad y soporte para largas
@@ -566,6 +758,7 @@
                                 $149.990
                             </strong>
 
+
                             <a href="contacto.html">
                                 Consultar →
                             </a>
@@ -577,12 +770,15 @@
                 </article>
 
 
+
+                <!-- ================================================= -->
                 <!-- CONTROL -->
+                <!-- ================================================= -->
 
                 <article
                     class="catalogo-producto"
                     data-nombre="control gamer pro joystick mando"
-                    data-categoria="accesorios control joystick"
+                    data-categoria="accesorios"
                 >
 
                     <div class="catalogo-producto-imagen">
@@ -601,13 +797,15 @@
                             ACCESORIOS
                         </span>
 
+
                         <h3>
                             Control Gamer Pro
                         </h3>
 
+
                         <p>
-                            Control diseñado para entregar comodidad
-                            y precisión en cada partida.
+                            Control diseñado para entregar
+                            comodidad y precisión en cada partida.
                         </p>
 
 
@@ -616,6 +814,7 @@
                             <strong>
                                 $54.990
                             </strong>
+
 
                             <a href="contacto.html">
                                 Consultar →
@@ -628,13 +827,16 @@
                 </article>
 
 
+
+                <!-- ================================================= -->
                 <!-- GPU -->
+                <!-- ================================================= -->
 
                 <article
                     class="catalogo-producto"
                     id="componentes"
-                    data-nombre="tarjeta grafica gamer gpu"
-                    data-categoria="componentes hardware gpu tarjeta grafica"
+                    data-nombre="tarjeta grafica gamer gpu hardware"
+                    data-categoria="componentes"
                 >
 
                     <div class="catalogo-producto-imagen">
@@ -643,9 +845,10 @@
                             HARDWARE
                         </span>
 
+
                         <img
                             src="img/gpu.jpg"
-                            alt="Tarjeta gráfica gamer"
+                            alt="Tarjeta Gráfica Gamer"
                         >
 
                     </div>
@@ -657,13 +860,15 @@
                             COMPONENTES
                         </span>
 
+
                         <h3>
                             Tarjeta Gráfica Gamer
                         </h3>
 
+
                         <p>
-                            Potencia gráfica para mejorar rendimiento,
-                            calidad visual y FPS.
+                            Potencia gráfica para mejorar
+                            rendimiento, calidad visual y FPS.
                         </p>
 
 
@@ -672,6 +877,7 @@
                             <strong>
                                 $649.990
                             </strong>
+
 
                             <a href="contacto.html">
                                 Consultar →
@@ -684,12 +890,15 @@
                 </article>
 
 
+
+                <!-- ================================================= -->
                 <!-- PC GAMER -->
+                <!-- ================================================= -->
 
                 <article
                     class="catalogo-producto"
-                    data-nombre="pc gamer rgb pro computador"
-                    data-categoria="pc gamer computador hardware"
+                    data-nombre="pc gamer rgb pro computador hardware"
+                    data-categoria="pc-gamer"
                 >
 
                     <div class="catalogo-producto-imagen">
@@ -697,6 +906,7 @@
                         <span class="producto-etiqueta">
                             GAMERZONE
                         </span>
+
 
                         <img
                             src="img/pc-gamer.jpg"
@@ -712,9 +922,11 @@
                             PC GAMER
                         </span>
 
+
                         <h3>
                             PC Gamer RGB Pro
                         </h3>
+
 
                         <p>
                             Equipo completo orientado a gaming,
@@ -728,6 +940,7 @@
                                 $1.199.990
                             </strong>
 
+
                             <a href="contacto.html">
                                 Consultar →
                             </a>
@@ -738,12 +951,14 @@
 
                 </article>
 
+
             </div>
 
 
-            <!-- ================================= -->
+
+            <!-- ================================================= -->
             <!-- SIN RESULTADOS -->
-            <!-- ================================= -->
+            <!-- ================================================= -->
 
             <div
                 class="sin-resultados"
@@ -752,26 +967,39 @@
             >
 
                 <span class="sin-resultados-icono">
-                    ?
+                    0
                 </span>
 
+
                 <h3>
-                    No encontramos productos
+                    No encontramos coincidencias
                 </h3>
 
+
                 <p>
-                    Intenta buscar “mouse”, “monitor”,
-                    “GPU”, “teclado” o “PC”.
+                    Prueba con otra búsqueda o selecciona
+                    una categoría diferente.
                 </p>
 
+
+                <button
+                    type="button"
+                    id="botonRestablecer"
+                    class="boton-restablecer"
+                >
+                    Mostrar todo el catálogo
+                </button>
+
             </div>
+
 
         </section>
 
 
-        <!-- ========================================= -->
+
+        <!-- ================================================= -->
         <!-- AYUDA -->
-        <!-- ========================================= -->
+        <!-- ================================================= -->
 
         <section class="catalogo-ayuda">
 
@@ -781,14 +1009,18 @@
                     ¿NECESITAS AYUDA?
                 </span>
 
+
                 <h2>
-                    Un buen upgrade comienza por saber qué necesitas.
+                    Un buen upgrade comienza
+                    por saber qué necesitas.
                 </h2>
+
 
                 <p>
                     Si tienes dudas sobre qué producto elegir,
                     puedes enviarnos tu consulta.
                 </p>
+
 
                 <a
                     href="contacto.html"
@@ -801,14 +1033,21 @@
 
         </section>
 
+
     </main>
 
+
+
+    <!-- ================================================= -->
+    <!-- FOOTER -->
+    <!-- ================================================= -->
 
     <footer>
 
         <h3>
             GamerZone
         </h3>
+
 
         <p>
             Gaming, componentes y periféricos
@@ -818,10 +1057,21 @@
 
         <div class="footer-navegacion">
 
-            <a href="index.html">Inicio</a>
-            <a href="productos.html">Productos</a>
-            <a href="nosotros.html">Nosotros</a>
-            <a href="contacto.html">Contacto</a>
+            <a href="index.html">
+                Inicio
+            </a>
+
+            <a href="productos.html">
+                Productos
+            </a>
+
+            <a href="nosotros.html">
+                Nosotros
+            </a>
+
+            <a href="contacto.html">
+                Contacto
+            </a>
 
         </div>
 
@@ -834,6 +1084,7 @@
 
 
     <script src="js/script.js"></script>
+
 
 </body>
 

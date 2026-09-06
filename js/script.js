@@ -1,16 +1,16 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    iniciarBuscadorProductos();
+    iniciarCatalogoProductos();
     iniciarFormularioContacto();
 
 });
 
 
 /* ================================================= */
-/* BUSCADOR DE PRODUCTOS */
+/* CATÁLOGO DE PRODUCTOS */
 /* ================================================= */
 
-function iniciarBuscadorProductos() {
+function iniciarCatalogoProductos() {
 
     const formularioBusqueda =
         document.getElementById("formularioBusqueda");
@@ -21,6 +21,9 @@ function iniciarBuscadorProductos() {
     const botonLimpiar =
         document.getElementById("botonLimpiarBusqueda");
 
+    const botonRestablecer =
+        document.getElementById("botonRestablecer");
+
     const resultadoBusqueda =
         document.getElementById("resultadoBusqueda");
 
@@ -30,6 +33,11 @@ function iniciarBuscadorProductos() {
     const productos =
         document.querySelectorAll(
             "#listaProductos .catalogo-producto"
+        );
+
+    const botonesFiltro =
+        document.querySelectorAll(
+            ".filtro-producto"
         );
 
 
@@ -44,9 +52,12 @@ function iniciarBuscadorProductos() {
     }
 
 
-    /* ============================================= */
+    let filtroActual = "todos";
+
+
+    /* ================================================= */
     /* NORMALIZAR TEXTO */
-    /* ============================================= */
+    /* ================================================= */
 
     function normalizarTexto(texto) {
 
@@ -59,17 +70,45 @@ function iniciarBuscadorProductos() {
     }
 
 
-    /* ============================================= */
-    /* REALIZAR BÚSQUEDA */
-    /* ============================================= */
+    /* ================================================= */
+    /* NOMBRE VISIBLE DE CATEGORÍA */
+    /* ================================================= */
 
-    function buscarProductos() {
+    function nombreCategoria(categoria) {
 
-        const textoIngresado =
+        const categorias = {
+
+            "todos": "Todos",
+
+            "perifericos": "Periféricos",
+
+            "monitores": "Monitores",
+
+            "componentes": "Componentes",
+
+            "pc-gamer": "PC Gamer",
+
+            "accesorios": "Accesorios"
+
+        };
+
+
+        return categorias[categoria] || categoria;
+
+    }
+
+
+    /* ================================================= */
+    /* APLICAR BÚSQUEDA + FILTRO */
+    /* ================================================= */
+
+    function aplicarFiltros() {
+
+        const textoOriginal =
             buscador.value.trim();
 
         const termino =
-            normalizarTexto(textoIngresado);
+            normalizarTexto(textoOriginal);
 
         let cantidadVisible = 0;
 
@@ -77,35 +116,40 @@ function iniciarBuscadorProductos() {
         productos.forEach(function (producto) {
 
             const nombre =
-                producto.dataset.nombre || "";
+                normalizarTexto(
+                    producto.dataset.nombre || ""
+                );
 
             const categoria =
                 producto.dataset.categoria || "";
 
             const titulo =
-                producto.querySelector("h3")
-                    ?.textContent || "";
-
-
-            const contenidoProducto =
                 normalizarTexto(
-                    nombre +
-                    " " +
-                    categoria +
-                    " " +
-                    titulo
+                    producto.querySelector("h3")
+                        ?.textContent || ""
                 );
 
 
-            const coincide =
+            const coincideBusqueda =
                 termino === "" ||
-                contenidoProducto.includes(termino);
+                nombre.includes(termino) ||
+                titulo.includes(termino);
 
 
-            producto.hidden = !coincide;
+            const coincideCategoria =
+                filtroActual === "todos" ||
+                categoria === filtroActual;
 
 
-            if (coincide) {
+            const mostrar =
+                coincideBusqueda &&
+                coincideCategoria;
+
+
+            producto.hidden = !mostrar;
+
+
+            if (mostrar) {
 
                 cantidadVisible++;
 
@@ -116,60 +160,84 @@ function iniciarBuscadorProductos() {
 
         actualizarResultado(
             cantidadVisible,
-            textoIngresado
+            textoOriginal
         );
-
-
-        /* Lleva al catálogo cuando existe búsqueda */
-
-        if (termino !== "") {
-
-            document
-                .getElementById("listaProductos")
-                .scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
-
-        }
 
     }
 
 
-    /* ============================================= */
-    /* RESULTADO DE LA BÚSQUEDA */
-    /* ============================================= */
+    /* ================================================= */
+    /* ACTUALIZAR TEXTO DE RESULTADOS */
+    /* ================================================= */
 
     function actualizarResultado(
         cantidadVisible,
-        textoIngresado
+        textoOriginal
     ) {
 
-        if (textoIngresado === "") {
+        const categoriaTexto =
+            nombreCategoria(filtroActual);
+
+
+        if (
+            textoOriginal === "" &&
+            filtroActual === "todos"
+        ) {
 
             resultadoBusqueda.textContent =
                 `Mostrando los ${productos.length} productos`;
 
         }
 
-        else if (cantidadVisible === 0) {
+
+        else if (
+            textoOriginal === "" &&
+            filtroActual !== "todos"
+        ) {
 
             resultadoBusqueda.textContent =
-                `No encontramos resultados para "${textoIngresado}"`;
+                `Mostrando ${cantidadVisible} producto${cantidadVisible !== 1 ? "s" : ""} en ${categoriaTexto}`;
 
         }
 
-        else if (cantidadVisible === 1) {
 
-            resultadoBusqueda.textContent =
-                `1 producto encontrado para "${textoIngresado}"`;
+        else if (
+            textoOriginal !== "" &&
+            filtroActual === "todos"
+        ) {
+
+            if (cantidadVisible === 0) {
+
+                resultadoBusqueda.textContent =
+                    `No encontramos resultados para "${textoOriginal}"`;
+
+            }
+
+            else {
+
+                resultadoBusqueda.textContent =
+                    `${cantidadVisible} producto${cantidadVisible !== 1 ? "s" : ""} encontrado${cantidadVisible !== 1 ? "s" : ""} para "${textoOriginal}"`;
+
+            }
 
         }
+
 
         else {
 
-            resultadoBusqueda.textContent =
-                `${cantidadVisible} productos encontrados para "${textoIngresado}"`;
+            if (cantidadVisible === 0) {
+
+                resultadoBusqueda.textContent =
+                    `No hay resultados para "${textoOriginal}" en ${categoriaTexto}`;
+
+            }
+
+            else {
+
+                resultadoBusqueda.textContent =
+                    `${cantidadVisible} producto${cantidadVisible !== 1 ? "s" : ""} encontrado${cantidadVisible !== 1 ? "s" : ""} para "${textoOriginal}" en ${categoriaTexto}`;
+
+            }
 
         }
 
@@ -184,9 +252,46 @@ function iniciarBuscadorProductos() {
     }
 
 
-    /* ============================================= */
-    /* BOTÓN BUSCAR Y TECLA ENTER */
-    /* ============================================= */
+    /* ================================================= */
+    /* BOTONES ACTIVOS */
+    /* ================================================= */
+
+    function actualizarBotonActivo(
+        botonSeleccionado
+    ) {
+
+        botonesFiltro.forEach(
+            function (boton) {
+
+                boton.classList.remove(
+                    "activo"
+                );
+
+                boton.setAttribute(
+                    "aria-pressed",
+                    "false"
+                );
+
+            }
+        );
+
+
+        botonSeleccionado.classList.add(
+            "activo"
+        );
+
+
+        botonSeleccionado.setAttribute(
+            "aria-pressed",
+            "true"
+        );
+
+    }
+
+
+    /* ================================================= */
+    /* FORMULARIO DE BÚSQUEDA */
+    /* ================================================= */
 
     formularioBusqueda.addEventListener(
         "submit",
@@ -194,15 +299,83 @@ function iniciarBuscadorProductos() {
 
             evento.preventDefault();
 
-            buscarProductos();
+            aplicarFiltros();
+
+            document
+                .getElementById("listaProductos")
+                .scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
 
         }
     );
 
 
-    /* ============================================= */
-    /* BOTÓN LIMPIAR */
-    /* ============================================= */
+    /* ================================================= */
+    /* FILTROS POR CATEGORÍA */
+    /* ================================================= */
+
+    botonesFiltro.forEach(
+        function (boton) {
+
+            boton.addEventListener(
+                "click",
+                function () {
+
+                    filtroActual =
+                        boton.dataset.filtro;
+
+                    actualizarBotonActivo(
+                        boton
+                    );
+
+                    aplicarFiltros();
+
+                    document
+                        .getElementById("listaProductos")
+                        .scrollIntoView({
+                            behavior: "smooth",
+                            block: "start"
+                        });
+
+                }
+            );
+
+        }
+    );
+
+
+    /* ================================================= */
+    /* LIMPIAR TODO */
+    /* ================================================= */
+
+    function restablecerCatalogo() {
+
+        buscador.value = "";
+
+        filtroActual = "todos";
+
+
+        const botonTodos =
+            document.querySelector(
+                '.filtro-producto[data-filtro="todos"]'
+            );
+
+
+        if (botonTodos) {
+
+            actualizarBotonActivo(
+                botonTodos
+            );
+
+        }
+
+
+        aplicarFiltros();
+
+    }
+
 
     if (botonLimpiar) {
 
@@ -210,28 +383,7 @@ function iniciarBuscadorProductos() {
             "click",
             function () {
 
-                buscador.value = "";
-
-
-                productos.forEach(
-                    function (producto) {
-
-                        producto.hidden = false;
-
-                    }
-                );
-
-
-                resultadoBusqueda.textContent =
-                    `Mostrando los ${productos.length} productos`;
-
-
-                if (sinResultados) {
-
-                    sinResultados.hidden = true;
-
-                }
-
+                restablecerCatalogo();
 
                 buscador.focus();
 
@@ -241,12 +393,48 @@ function iniciarBuscadorProductos() {
     }
 
 
-    /* ============================================= */
-    /* ESTADO INICIAL */
-    /* ============================================= */
+    if (botonRestablecer) {
 
-    resultadoBusqueda.textContent =
-        `Mostrando los ${productos.length} productos`;
+        botonRestablecer.addEventListener(
+            "click",
+            function () {
+
+                restablecerCatalogo();
+
+                document
+                    .querySelector(".zona-catalogo-control")
+                    .scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+
+            }
+        );
+
+    }
+
+
+    /* ================================================= */
+    /* ESTADO INICIAL */
+    /* ================================================= */
+
+    const botonTodos =
+        document.querySelector(
+            '.filtro-producto[data-filtro="todos"]'
+        );
+
+
+    if (botonTodos) {
+
+        botonTodos.setAttribute(
+            "aria-pressed",
+            "true"
+        );
+
+    }
+
+
+    aplicarFiltros();
 
 }
 
@@ -258,7 +446,9 @@ function iniciarBuscadorProductos() {
 function iniciarFormularioContacto() {
 
     const formulario =
-        document.getElementById("formularioContacto");
+        document.getElementById(
+            "formularioContacto"
+        );
 
 
     if (!formulario) {
@@ -307,15 +497,19 @@ function iniciarFormularioContacto() {
 
 
     const contadorCaracteres =
-        document.getElementById("contadorCaracteres");
+        document.getElementById(
+            "contadorCaracteres"
+        );
 
     const mensajeExito =
-        document.getElementById("mensajeExito");
+        document.getElementById(
+            "mensajeExito"
+        );
 
 
-    /* ============================================= */
+    /* ================================================= */
     /* FUNCIONES VISUALES */
-    /* ============================================= */
+    /* ================================================= */
 
     function mostrarError(
         campo,
@@ -369,9 +563,9 @@ function iniciarFormularioContacto() {
     }
 
 
-    /* ============================================= */
+    /* ================================================= */
     /* VALIDAR NOMBRE */
-    /* ============================================= */
+    /* ================================================= */
 
     function validarNombre() {
 
@@ -423,9 +617,9 @@ function iniciarFormularioContacto() {
     }
 
 
-    /* ============================================= */
+    /* ================================================= */
     /* VALIDAR CORREO */
-    /* ============================================= */
+    /* ================================================= */
 
     function validarCorreo() {
 
@@ -466,9 +660,9 @@ function iniciarFormularioContacto() {
     }
 
 
-    /* ============================================= */
+    /* ================================================= */
     /* VALIDAR TELÉFONO */
-    /* ============================================= */
+    /* ================================================= */
 
     function validarTelefono() {
 
@@ -509,9 +703,9 @@ function iniciarFormularioContacto() {
     }
 
 
-    /* ============================================= */
+    /* ================================================= */
     /* VALIDAR MOTIVO */
-    /* ============================================= */
+    /* ================================================= */
 
     function validarMotivo() {
 
@@ -534,9 +728,9 @@ function iniciarFormularioContacto() {
     }
 
 
-    /* ============================================= */
+    /* ================================================= */
     /* VALIDAR MENSAJE */
-    /* ============================================= */
+    /* ================================================= */
 
     function validarMensaje() {
 
@@ -585,9 +779,9 @@ function iniciarFormularioContacto() {
     }
 
 
-    /* ============================================= */
+    /* ================================================= */
     /* VALIDAR CONFIRMACIÓN */
-    /* ============================================= */
+    /* ================================================= */
 
     function validarTerminos() {
 
@@ -608,15 +802,17 @@ function iniciarFormularioContacto() {
     }
 
 
-    /* ============================================= */
-    /* CONTADOR DEL MENSAJE */
-    /* ============================================= */
+    /* ================================================= */
+    /* CONTADOR */
+    /* ================================================= */
 
     mensaje.addEventListener(
         "input",
         function () {
 
-            if (mensaje.value.length > 500) {
+            if (
+                mensaje.value.length > 500
+            ) {
 
                 mensaje.value =
                     mensaje.value.substring(
@@ -631,7 +827,9 @@ function iniciarFormularioContacto() {
                 mensaje.value.length;
 
 
-            if (mensaje.value.length > 0) {
+            if (
+                mensaje.value.length > 0
+            ) {
 
                 validarMensaje();
 
@@ -639,7 +837,9 @@ function iniciarFormularioContacto() {
 
             else {
 
-                limpiarEstado(mensaje);
+                limpiarEstado(
+                    mensaje
+                );
 
                 errorMensaje.textContent = "";
 
@@ -649,9 +849,9 @@ function iniciarFormularioContacto() {
     );
 
 
-    /* ============================================= */
-    /* TELÉFONO SOLO NUMÉRICO */
-    /* ============================================= */
+    /* ================================================= */
+    /* TELÉFONO */
+    /* ================================================= */
 
     telefono.addEventListener(
         "input",
@@ -666,9 +866,9 @@ function iniciarFormularioContacto() {
     );
 
 
-    /* ============================================= */
-    /* VALIDACIONES EN TIEMPO REAL */
-    /* ============================================= */
+    /* ================================================= */
+    /* VALIDACIÓN INDIVIDUAL */
+    /* ================================================= */
 
     nombre.addEventListener(
         "blur",
@@ -701,9 +901,9 @@ function iniciarFormularioContacto() {
     );
 
 
-    /* ============================================= */
-    /* ENVÍO */
-    /* ============================================= */
+    /* ================================================= */
+    /* ENVÍO DEL FORMULARIO */
+    /* ================================================= */
 
     formulario.addEventListener(
         "submit",
@@ -759,7 +959,9 @@ function iniciarFormularioContacto() {
 
                 }
 
-                else if (!terminos.checked) {
+                else if (
+                    !terminos.checked
+                ) {
 
                     terminos.focus();
 
@@ -793,11 +995,15 @@ function iniciarFormularioContacto() {
                 telefono,
                 motivo,
                 mensaje
-            ].forEach(function (campo) {
+            ].forEach(
+                function (campo) {
 
-                limpiarEstado(campo);
+                    limpiarEstado(
+                        campo
+                    );
 
-            });
+                }
+            );
 
 
             [
@@ -807,16 +1013,21 @@ function iniciarFormularioContacto() {
                 errorMotivo,
                 errorMensaje,
                 errorTerminos
-            ].forEach(function (error) {
+            ].forEach(
+                function (error) {
 
-                error.textContent = "";
+                    error.textContent = "";
 
-            });
+                }
+            );
 
 
             mensajeExito.scrollIntoView({
+
                 behavior: "smooth",
+
                 block: "center"
+
             });
 
         }
