@@ -18,19 +18,19 @@
     <title>Productos | GamerZone</title>
 
 
-    <!-- ESTILOS GENERALES -->
-
     <link
         rel="stylesheet"
         href="css/estilos.css"
     >
 
-
-    <!-- ESTILOS EXCLUSIVOS DEL CATÁLOGO -->
-
     <link
         rel="stylesheet"
         href="css/productos.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/modal-productos.css"
     >
 
 </head>
@@ -134,8 +134,6 @@
 
             <div class="zona-catalogo-control-interior">
 
-
-                <!-- BUSCADOR -->
 
                 <div class="buscador-productos">
 
@@ -250,10 +248,7 @@
                             data-filtro="todos"
                         >
                             Todos
-
-                            <span>
-                                8
-                            </span>
+                            <span>8</span>
                         </button>
 
 
@@ -263,10 +258,7 @@
                             data-filtro="perifericos"
                         >
                             Periféricos
-
-                            <span>
-                                3
-                            </span>
+                            <span>3</span>
                         </button>
 
 
@@ -276,10 +268,7 @@
                             data-filtro="monitores"
                         >
                             Monitores
-
-                            <span>
-                                1
-                            </span>
+                            <span>1</span>
                         </button>
 
 
@@ -289,10 +278,7 @@
                             data-filtro="componentes"
                         >
                             Componentes
-
-                            <span>
-                                1
-                            </span>
+                            <span>1</span>
                         </button>
 
 
@@ -302,10 +288,7 @@
                             data-filtro="pc-gamer"
                         >
                             PC Gamer
-
-                            <span>
-                                1
-                            </span>
+                            <span>1</span>
                         </button>
 
 
@@ -315,10 +298,7 @@
                             data-filtro="accesorios"
                         >
                             Accesorios
-
-                            <span>
-                                2
-                            </span>
+                            <span>2</span>
                         </button>
 
                     </div>
@@ -333,7 +313,7 @@
 
 
         <!-- ================================================= -->
-        <!-- PRODUCTO DESTACADO -->
+        <!-- PRODUCTO PRINCIPAL -->
         <!-- ================================================= -->
 
         <section
@@ -351,18 +331,15 @@
             </div>
 
 
-
             <div class="producto-principal-contenido">
 
                 <span class="etiqueta-seccion">
                     PRODUCTO DESTACADO
                 </span>
 
-
                 <h2>
                     PC Gamer RGB Pro
                 </h2>
-
 
                 <p class="producto-principal-descripcion">
                     Una configuración pensada para gaming,
@@ -371,49 +348,24 @@
                 </p>
 
 
-
                 <div class="producto-principal-detalles">
 
                     <div>
-
-                        <span>
-                            TIPO
-                        </span>
-
-                        <strong>
-                            PC Gamer
-                        </strong>
-
+                        <span>TIPO</span>
+                        <strong>PC Gamer</strong>
                     </div>
 
-
                     <div>
-
-                        <span>
-                            ENFOQUE
-                        </span>
-
-                        <strong>
-                            Gaming y streaming
-                        </strong>
-
+                        <span>ENFOQUE</span>
+                        <strong>Gaming y streaming</strong>
                     </div>
 
-
                     <div>
-
-                        <span>
-                            DISEÑO
-                        </span>
-
-                        <strong>
-                            Iluminación RGB
-                        </strong>
-
+                        <span>DISEÑO</span>
+                        <strong>Iluminación RGB</strong>
                     </div>
 
                 </div>
-
 
 
                 <div class="producto-principal-compra">
@@ -421,7 +373,6 @@
                     <strong class="precio-destacado">
                         $1.199.990
                     </strong>
-
 
                     <a
                         href="contacto.html"
@@ -461,8 +412,8 @@
 
 
                 <p>
-                    Utiliza la búsqueda o los filtros para
-                    encontrar exactamente lo que necesitas.
+                    Utiliza la búsqueda, los filtros
+                    o abre los detalles de cada producto.
                 </p>
 
             </div>
@@ -475,9 +426,7 @@
             >
 
 
-                <!-- ================================================= -->
                 <!-- TECLADO -->
-                <!-- ================================================= -->
 
                 <article
                     class="catalogo-producto"
@@ -505,11 +454,9 @@
                             PERIFÉRICOS
                         </span>
 
-
                         <h3>
                             Teclado Mecánico RGB
                         </h3>
-
 
                         <p>
                             Teclado mecánico diseñado para
@@ -524,9 +471,24 @@
                             </strong>
 
 
-                            <a href="contacto.html">
-                                Consultar →
-                            </a>
+                            <div class="producto-acciones">
+
+                                <button
+                                    type="button"
+                                    class="boton-ver-detalles"
+                                    data-producto="teclado"
+                                >
+                                    Ver detalles
+                                </button>
+
+                                <a
+                                    href="contacto.html"
+                                    class="enlace-consultar-producto"
+                                >
+                                    Consultar
+                                </a>
+
+                            </div>
 
                         </div>
 
@@ -536,9 +498,7 @@
 
 
 
-                <!-- ================================================= -->
                 <!-- MOUSE -->
-                <!-- ================================================= -->
 
                 <article
                     class="catalogo-producto"
@@ -562,11 +522,9 @@
                             PERIFÉRICOS
                         </span>
 
-
                         <h3>
                             Mouse Gamer RGB
                         </h3>
-
 
                         <p>
                             Diseño ergonómico y respuesta precisa
@@ -581,9 +539,24 @@
                             </strong>
 
 
-                            <a href="contacto.html">
-                                Consultar →
-                            </a>
+                            <div class="producto-acciones">
+
+                                <button
+                                    type="button"
+                                    class="boton-ver-detalles"
+                                    data-producto="mouse"
+                                >
+                                    Ver detalles
+                                </button>
+
+                                <a
+                                    href="contacto.html"
+                                    class="enlace-consultar-producto"
+                                >
+                                    Consultar
+                                </a>
+
+                            </div>
 
                         </div>
 
@@ -593,9 +566,7 @@
 
 
 
-                <!-- ================================================= -->
                 <!-- AUDÍFONOS -->
-                <!-- ================================================= -->
 
                 <article
                     class="catalogo-producto"
@@ -619,11 +590,9 @@
                             PERIFÉRICOS / AUDIO
                         </span>
 
-
                         <h3>
                             Audífonos Gamer
                         </h3>
-
 
                         <p>
                             Audio envolvente y diseño cómodo
@@ -638,9 +607,24 @@
                             </strong>
 
 
-                            <a href="contacto.html">
-                                Consultar →
-                            </a>
+                            <div class="producto-acciones">
+
+                                <button
+                                    type="button"
+                                    class="boton-ver-detalles"
+                                    data-producto="audifonos"
+                                >
+                                    Ver detalles
+                                </button>
+
+                                <a
+                                    href="contacto.html"
+                                    class="enlace-consultar-producto"
+                                >
+                                    Consultar
+                                </a>
+
+                            </div>
 
                         </div>
 
@@ -650,9 +634,7 @@
 
 
 
-                <!-- ================================================= -->
                 <!-- MONITOR -->
-                <!-- ================================================= -->
 
                 <article
                     class="catalogo-producto"
@@ -666,7 +648,6 @@
                         <span class="producto-etiqueta">
                             165 HZ
                         </span>
-
 
                         <img
                             src="img/monitor.jpg"
@@ -682,11 +663,9 @@
                             MONITORES
                         </span>
 
-
                         <h3>
                             Monitor Gamer 165 Hz
                         </h3>
-
 
                         <p>
                             Alta frecuencia de actualización
@@ -701,9 +680,24 @@
                             </strong>
 
 
-                            <a href="contacto.html">
-                                Consultar →
-                            </a>
+                            <div class="producto-acciones">
+
+                                <button
+                                    type="button"
+                                    class="boton-ver-detalles"
+                                    data-producto="monitor"
+                                >
+                                    Ver detalles
+                                </button>
+
+                                <a
+                                    href="contacto.html"
+                                    class="enlace-consultar-producto"
+                                >
+                                    Consultar
+                                </a>
+
+                            </div>
 
                         </div>
 
@@ -713,9 +707,7 @@
 
 
 
-                <!-- ================================================= -->
                 <!-- SILLA -->
-                <!-- ================================================= -->
 
                 <article
                     class="catalogo-producto"
@@ -740,11 +732,9 @@
                             ACCESORIOS
                         </span>
 
-
                         <h3>
                             Silla Gamer Pro
                         </h3>
-
 
                         <p>
                             Comodidad y soporte para largas
@@ -759,9 +749,24 @@
                             </strong>
 
 
-                            <a href="contacto.html">
-                                Consultar →
-                            </a>
+                            <div class="producto-acciones">
+
+                                <button
+                                    type="button"
+                                    class="boton-ver-detalles"
+                                    data-producto="silla"
+                                >
+                                    Ver detalles
+                                </button>
+
+                                <a
+                                    href="contacto.html"
+                                    class="enlace-consultar-producto"
+                                >
+                                    Consultar
+                                </a>
+
+                            </div>
 
                         </div>
 
@@ -771,9 +776,7 @@
 
 
 
-                <!-- ================================================= -->
                 <!-- CONTROL -->
-                <!-- ================================================= -->
 
                 <article
                     class="catalogo-producto"
@@ -797,11 +800,9 @@
                             ACCESORIOS
                         </span>
 
-
                         <h3>
                             Control Gamer Pro
                         </h3>
-
 
                         <p>
                             Control diseñado para entregar
@@ -816,9 +817,24 @@
                             </strong>
 
 
-                            <a href="contacto.html">
-                                Consultar →
-                            </a>
+                            <div class="producto-acciones">
+
+                                <button
+                                    type="button"
+                                    class="boton-ver-detalles"
+                                    data-producto="control"
+                                >
+                                    Ver detalles
+                                </button>
+
+                                <a
+                                    href="contacto.html"
+                                    class="enlace-consultar-producto"
+                                >
+                                    Consultar
+                                </a>
+
+                            </div>
 
                         </div>
 
@@ -828,9 +844,7 @@
 
 
 
-                <!-- ================================================= -->
                 <!-- GPU -->
-                <!-- ================================================= -->
 
                 <article
                     class="catalogo-producto"
@@ -844,7 +858,6 @@
                         <span class="producto-etiqueta">
                             HARDWARE
                         </span>
-
 
                         <img
                             src="img/gpu.jpg"
@@ -860,11 +873,9 @@
                             COMPONENTES
                         </span>
 
-
                         <h3>
                             Tarjeta Gráfica Gamer
                         </h3>
-
 
                         <p>
                             Potencia gráfica para mejorar
@@ -879,9 +890,24 @@
                             </strong>
 
 
-                            <a href="contacto.html">
-                                Consultar →
-                            </a>
+                            <div class="producto-acciones">
+
+                                <button
+                                    type="button"
+                                    class="boton-ver-detalles"
+                                    data-producto="gpu"
+                                >
+                                    Ver detalles
+                                </button>
+
+                                <a
+                                    href="contacto.html"
+                                    class="enlace-consultar-producto"
+                                >
+                                    Consultar
+                                </a>
+
+                            </div>
 
                         </div>
 
@@ -891,9 +917,7 @@
 
 
 
-                <!-- ================================================= -->
                 <!-- PC GAMER -->
-                <!-- ================================================= -->
 
                 <article
                     class="catalogo-producto"
@@ -906,7 +930,6 @@
                         <span class="producto-etiqueta">
                             GAMERZONE
                         </span>
-
 
                         <img
                             src="img/pc-gamer.jpg"
@@ -922,11 +945,9 @@
                             PC GAMER
                         </span>
 
-
                         <h3>
                             PC Gamer RGB Pro
                         </h3>
-
 
                         <p>
                             Equipo completo orientado a gaming,
@@ -941,9 +962,24 @@
                             </strong>
 
 
-                            <a href="contacto.html">
-                                Consultar →
-                            </a>
+                            <div class="producto-acciones">
+
+                                <button
+                                    type="button"
+                                    class="boton-ver-detalles"
+                                    data-producto="pc"
+                                >
+                                    Ver detalles
+                                </button>
+
+                                <a
+                                    href="contacto.html"
+                                    class="enlace-consultar-producto"
+                                >
+                                    Consultar
+                                </a>
+
+                            </div>
 
                         </div>
 
@@ -970,17 +1006,14 @@
                     0
                 </span>
 
-
                 <h3>
                     No encontramos coincidencias
                 </h3>
-
 
                 <p>
                     Prueba con otra búsqueda o selecciona
                     una categoría diferente.
                 </p>
-
 
                 <button
                     type="button"
@@ -1009,18 +1042,15 @@
                     ¿NECESITAS AYUDA?
                 </span>
 
-
                 <h2>
                     Un buen upgrade comienza
                     por saber qué necesitas.
                 </h2>
 
-
                 <p>
                     Si tienes dudas sobre qué producto elegir,
                     puedes enviarnos tu consulta.
                 </p>
-
 
                 <a
                     href="contacto.html"
@@ -1039,6 +1069,145 @@
 
 
     <!-- ================================================= -->
+    <!-- MODAL DE PRODUCTO -->
+    <!-- ================================================= -->
+
+    <div
+        class="modal-producto"
+        id="modalProducto"
+        aria-hidden="true"
+    >
+
+
+        <div
+            class="modal-producto-backdrop"
+            data-cerrar-modal
+        ></div>
+
+
+
+        <div
+            class="modal-producto-dialogo"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modalProductoTitulo"
+        >
+
+
+            <button
+                type="button"
+                class="modal-producto-cerrar"
+                id="cerrarModalProducto"
+                data-cerrar-modal
+                aria-label="Cerrar detalles del producto"
+            >
+                ×
+            </button>
+
+
+
+            <div class="modal-producto-grid">
+
+
+                <!-- IMAGEN -->
+
+                <div class="modal-producto-visual">
+
+                    <img
+                        src=""
+                        alt=""
+                        id="modalProductoImagen"
+                    >
+
+                    <span
+                        class="modal-producto-categoria"
+                        id="modalProductoCategoria"
+                    ></span>
+
+                </div>
+
+
+
+                <!-- INFORMACIÓN -->
+
+                <div class="modal-producto-contenido">
+
+
+                    <span class="modal-producto-etiqueta">
+                        DETALLE DE PRODUCTO
+                    </span>
+
+
+                    <h2 id="modalProductoTitulo"></h2>
+
+
+                    <p
+                        class="modal-producto-descripcion"
+                        id="modalProductoDescripcion"
+                    ></p>
+
+
+
+                    <div class="modal-producto-precio">
+
+                        <span>
+                            PRECIO
+                        </span>
+
+                        <strong id="modalProductoPrecio"></strong>
+
+                    </div>
+
+
+
+                    <div class="modal-producto-caracteristicas">
+
+                        <h3>
+                            Características principales
+                        </h3>
+
+                        <ul id="modalProductoCaracteristicas"></ul>
+
+                    </div>
+
+
+
+                    <div class="modal-producto-acciones">
+
+                        <a
+                            href="contacto.html"
+                            class="modal-boton-principal"
+                        >
+                            Consultar producto
+                            <span>→</span>
+                        </a>
+
+
+                        <button
+                            type="button"
+                            class="modal-boton-secundario"
+                            data-cerrar-modal
+                        >
+                            Seguir explorando
+                        </button>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- ================================================= -->
     <!-- FOOTER -->
     <!-- ================================================= -->
 
@@ -1047,7 +1216,6 @@
         <h3>
             GamerZone
         </h3>
-
 
         <p>
             Gaming, componentes y periféricos
@@ -1083,7 +1251,15 @@
     </footer>
 
 
+
+    <!-- JS GENERAL -->
+
     <script src="js/script.js"></script>
+
+
+    <!-- JS DETALLES PRODUCTOS -->
+
+    <script src="js/detalles-productos.js"></script>
 
 
 </body>
