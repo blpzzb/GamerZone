@@ -55,11 +55,23 @@ function iniciarCarrito() {
 
     if (
         !botonAbrir ||
+        !botonCerrar ||
+        !overlay ||
         !panel ||
         !lista
     ) {
+
         return;
+
     }
+
+
+    /* ================================================= */
+    /* CONFIGURACIÓN LOCALSTORAGE */
+    /* ================================================= */
+
+    const CLAVE_CARRITO =
+        "gamerzone_carrito";
 
 
     let carrito = [];
@@ -68,65 +80,136 @@ function iniciarCarrito() {
 
 
     /* ================================================= */
-    /* PRODUCTOS */
+    /* CATÁLOGO DE PRODUCTOS */
     /* ================================================= */
 
     const productos = {
 
         teclado: {
+
             id: "teclado",
-            nombre: "Teclado Mecánico RGB",
-            precio: 59990,
-            imagen: "img/teclado.jpg"
+
+            nombre:
+                "Teclado Mecánico RGB",
+
+            precio:
+                59990,
+
+            imagen:
+                "img/teclado.jpg"
+
         },
+
 
         mouse: {
+
             id: "mouse",
-            nombre: "Mouse Gamer RGB",
-            precio: 29990,
-            imagen: "img/mouse.jpg"
+
+            nombre:
+                "Mouse Gamer RGB",
+
+            precio:
+                29990,
+
+            imagen:
+                "img/mouse.jpg"
+
         },
+
 
         audifonos: {
+
             id: "audifonos",
-            nombre: "Audífonos Gamer",
-            precio: 49990,
-            imagen: "img/audifonos.jpg"
+
+            nombre:
+                "Audífonos Gamer",
+
+            precio:
+                49990,
+
+            imagen:
+                "img/audifonos.jpg"
+
         },
+
 
         monitor: {
+
             id: "monitor",
-            nombre: "Monitor Gamer 165 Hz",
-            precio: 199990,
-            imagen: "img/monitor.jpg"
+
+            nombre:
+                "Monitor Gamer 165 Hz",
+
+            precio:
+                199990,
+
+            imagen:
+                "img/monitor.jpg"
+
         },
+
 
         silla: {
+
             id: "silla",
-            nombre: "Silla Gamer Pro",
-            precio: 149990,
-            imagen: "img/silla.jpg"
+
+            nombre:
+                "Silla Gamer Pro",
+
+            precio:
+                149990,
+
+            imagen:
+                "img/silla.jpg"
+
         },
+
 
         control: {
+
             id: "control",
-            nombre: "Control Gamer Pro",
-            precio: 54990,
-            imagen: "img/control.jpg"
+
+            nombre:
+                "Control Gamer Pro",
+
+            precio:
+                54990,
+
+            imagen:
+                "img/control.jpg"
+
         },
+
 
         gpu: {
+
             id: "gpu",
-            nombre: "Tarjeta Gráfica Gamer",
-            precio: 649990,
-            imagen: "img/gpu.jpg"
+
+            nombre:
+                "Tarjeta Gráfica Gamer",
+
+            precio:
+                649990,
+
+            imagen:
+                "img/gpu.jpg"
+
         },
 
+
         pc: {
+
             id: "pc",
-            nombre: "PC Gamer RGB Pro",
-            precio: 1199990,
-            imagen: "img/pc-gamer.jpg"
+
+            nombre:
+                "PC Gamer RGB Pro",
+
+            precio:
+                1199990,
+
+            imagen:
+                "img/pc-gamer.jpg"
+
         }
 
     };
@@ -134,7 +217,7 @@ function iniciarCarrito() {
 
     /* ================================================= */
     /* FORMATEAR PRECIO */
-    /* ================================================= */
+/* ================================================= */
 
     function formatearPrecio(valor) {
 
@@ -142,10 +225,151 @@ function iniciarCarrito() {
             "es-CL",
             {
                 style: "currency",
+
                 currency: "CLP",
+
                 maximumFractionDigits: 0
             }
         ).format(valor);
+
+    }
+
+
+    /* ================================================= */
+    /* GUARDAR CARRITO */
+/* ================================================= */
+
+    function guardarCarrito() {
+
+        const datosParaGuardar =
+            carrito.map(
+                function (producto) {
+
+                    return {
+
+                        id:
+                            producto.id,
+
+                        cantidad:
+                            producto.cantidad
+
+                    };
+
+                }
+            );
+
+
+        localStorage.setItem(
+            CLAVE_CARRITO,
+            JSON.stringify(datosParaGuardar)
+        );
+
+    }
+
+
+    /* ================================================= */
+    /* CARGAR CARRITO */
+/* ================================================= */
+
+    function cargarCarrito() {
+
+        const carritoGuardado =
+            localStorage.getItem(
+                CLAVE_CARRITO
+            );
+
+
+        if (!carritoGuardado) {
+
+            carrito = [];
+
+            return;
+
+        }
+
+
+        try {
+
+            const datos =
+                JSON.parse(
+                    carritoGuardado
+                );
+
+
+            if (!Array.isArray(datos)) {
+
+                carrito = [];
+
+                return;
+
+            }
+
+
+            carrito =
+                datos
+                    .filter(
+                        function (item) {
+
+                            return (
+                                item &&
+                                productos[item.id]
+                            );
+
+                        }
+                    )
+                    .map(
+                        function (item) {
+
+                            const productoOriginal =
+                                productos[item.id];
+
+
+                            let cantidad =
+                                Number(
+                                    item.cantidad
+                                );
+
+
+                            if (
+                                !Number.isInteger(cantidad) ||
+                                cantidad < 1
+                            ) {
+
+                                cantidad = 1;
+
+                            }
+
+
+                            return {
+
+                                ...productoOriginal,
+
+                                cantidad:
+                                    cantidad
+
+                            };
+
+                        }
+                    );
+
+        }
+
+        catch (error) {
+
+            console.error(
+                "No fue posible cargar el carrito guardado.",
+                error
+            );
+
+
+            carrito = [];
+
+
+            localStorage.removeItem(
+                CLAVE_CARRITO
+            );
+
+        }
 
     }
 
@@ -156,18 +380,26 @@ function iniciarCarrito() {
 
     function abrirCarrito() {
 
-        panel.classList.add("activo");
+        panel.classList.add(
+            "activo"
+        );
 
-        overlay.classList.add("activo");
+
+        overlay.classList.add(
+            "activo"
+        );
+
 
         panel.setAttribute(
             "aria-hidden",
             "false"
         );
 
+
         document.body.classList.add(
             "carrito-abierto"
         );
+
 
         botonCerrar.focus();
 
@@ -180,18 +412,26 @@ function iniciarCarrito() {
 
     function cerrarCarrito() {
 
-        panel.classList.remove("activo");
+        panel.classList.remove(
+            "activo"
+        );
 
-        overlay.classList.remove("activo");
+
+        overlay.classList.remove(
+            "activo"
+        );
+
 
         panel.setAttribute(
             "aria-hidden",
             "true"
         );
 
+
         document.body.classList.remove(
             "carrito-abierto"
         );
+
 
         botonAbrir.focus();
 
@@ -209,7 +449,9 @@ function iniciarCarrito() {
 
 
         if (!producto) {
+
             return;
+
         }
 
 
@@ -217,7 +459,10 @@ function iniciarCarrito() {
             carrito.find(
                 function (item) {
 
-                    return item.id === idProducto;
+                    return (
+                        item.id ===
+                        idProducto
+                    );
 
                 }
             );
@@ -232,14 +477,20 @@ function iniciarCarrito() {
         else {
 
             carrito.push({
+
                 ...producto,
+
                 cantidad: 1
+
             });
 
         }
 
 
+        guardarCarrito();
+
         renderizarCarrito();
+
 
         mostrarNotificacion(
             producto.nombre
@@ -261,21 +512,29 @@ function iniciarCarrito() {
             carrito.find(
                 function (item) {
 
-                    return item.id === idProducto;
+                    return (
+                        item.id ===
+                        idProducto
+                    );
 
                 }
             );
 
 
         if (!producto) {
+
             return;
+
         }
 
 
-        producto.cantidad += cambio;
+        producto.cantidad +=
+            cambio;
 
 
-        if (producto.cantidad <= 0) {
+        if (
+            producto.cantidad <= 0
+        ) {
 
             eliminarProducto(
                 idProducto
@@ -286,6 +545,8 @@ function iniciarCarrito() {
         }
 
 
+        guardarCarrito();
+
         renderizarCarrito();
 
     }
@@ -295,17 +556,24 @@ function iniciarCarrito() {
     /* ELIMINAR PRODUCTO */
     /* ================================================= */
 
-    function eliminarProducto(idProducto) {
+    function eliminarProducto(
+        idProducto
+    ) {
 
         carrito =
             carrito.filter(
                 function (item) {
 
-                    return item.id !== idProducto;
+                    return (
+                        item.id !==
+                        idProducto
+                    );
 
                 }
             );
 
+
+        guardarCarrito();
 
         renderizarCarrito();
 
@@ -313,20 +581,23 @@ function iniciarCarrito() {
 
 
     /* ================================================= */
-    /* VACIAR */
+    /* VACIAR CARRITO */
     /* ================================================= */
 
     function vaciarCarrito() {
 
         carrito = [];
 
+
+        guardarCarrito();
+
         renderizarCarrito();
 
     }
 
 
     /* ================================================= */
-    /* RENDERIZAR */
+    /* RENDERIZAR CARRITO */
     /* ================================================= */
 
     function renderizarCarrito() {
@@ -394,7 +665,7 @@ function iniciarCarrito() {
                                     type="button"
                                     data-accion="restar"
                                     data-producto="${producto.id}"
-                                    aria-label="Disminuir cantidad"
+                                    aria-label="Disminuir cantidad de ${producto.nombre}"
                                 >
                                     −
                                 </button>
@@ -409,7 +680,7 @@ function iniciarCarrito() {
                                     type="button"
                                     data-accion="sumar"
                                     data-producto="${producto.id}"
-                                    aria-label="Aumentar cantidad"
+                                    aria-label="Aumentar cantidad de ${producto.nombre}"
                                 >
                                     +
                                 </button>
@@ -434,15 +705,25 @@ function iniciarCarrito() {
                 `;
 
 
-                lista.appendChild(item);
+                lista.appendChild(
+                    item
+                );
 
             }
         );
 
 
+        /* --------------------------------------------- */
+        /* CONTADOR DEL HEADER */
+        /* --------------------------------------------- */
+
         contador.textContent =
             cantidadTotal;
 
+
+        /* --------------------------------------------- */
+        /* RESUMEN */
+        /* --------------------------------------------- */
 
         cantidadResumen.textContent =
             `${cantidadTotal} producto${cantidadTotal !== 1 ? "s" : ""}`;
@@ -454,6 +735,10 @@ function iniciarCarrito() {
             );
 
 
+        /* --------------------------------------------- */
+        /* ESTADO VACÍO */
+        /* --------------------------------------------- */
+
         carritoVacio.hidden =
             carrito.length !== 0;
 
@@ -461,6 +746,10 @@ function iniciarCarrito() {
         lista.hidden =
             carrito.length === 0;
 
+
+        /* --------------------------------------------- */
+        /* BOTÓN VACIAR */
+        /* --------------------------------------------- */
 
         botonVaciar.disabled =
             carrito.length === 0;
@@ -507,7 +796,7 @@ function iniciarCarrito() {
 
     /* ================================================= */
     /* BOTONES AGREGAR */
-/* ================================================= */
+    /* ================================================= */
 
     botonesAgregar.forEach(
         function (boton) {
@@ -528,7 +817,7 @@ function iniciarCarrito() {
 
 
     /* ================================================= */
-    /* EVENTOS DEL CARRITO */
+    /* ACCIONES DENTRO DEL CARRITO */
     /* ================================================= */
 
     lista.addEventListener(
@@ -542,18 +831,23 @@ function iniciarCarrito() {
 
 
             if (!boton) {
+
                 return;
+
             }
 
 
             const accion =
                 boton.dataset.accion;
 
+
             const idProducto =
                 boton.dataset.producto;
 
 
-            if (accion === "sumar") {
+            if (
+                accion === "sumar"
+            ) {
 
                 cambiarCantidad(
                     idProducto,
@@ -563,7 +857,9 @@ function iniciarCarrito() {
             }
 
 
-            if (accion === "restar") {
+            if (
+                accion === "restar"
+            ) {
 
                 cambiarCantidad(
                     idProducto,
@@ -573,7 +869,9 @@ function iniciarCarrito() {
             }
 
 
-            if (accion === "eliminar") {
+            if (
+                accion === "eliminar"
+            ) {
 
                 eliminarProducto(
                     idProducto
@@ -584,6 +882,10 @@ function iniciarCarrito() {
         }
     );
 
+
+    /* ================================================= */
+    /* ABRIR / CERRAR */
+    /* ================================================= */
 
     botonAbrir.addEventListener(
         "click",
@@ -603,11 +905,19 @@ function iniciarCarrito() {
     );
 
 
+    /* ================================================= */
+    /* VACIAR */
+    /* ================================================= */
+
     botonVaciar.addEventListener(
         "click",
         vaciarCarrito
     );
 
+
+    /* ================================================= */
+    /* TECLA ESCAPE */
+    /* ================================================= */
 
     document.addEventListener(
         "keydown",
@@ -629,8 +939,10 @@ function iniciarCarrito() {
 
 
     /* ================================================= */
-    /* ESTADO INICIAL */
+    /* INICIAR CARRITO GUARDADO */
     /* ================================================= */
+
+    cargarCarrito();
 
     renderizarCarrito();
 
