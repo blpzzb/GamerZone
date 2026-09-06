@@ -33,6 +33,11 @@
         href="css/modal-productos.css"
     >
 
+    <link
+        rel="stylesheet"
+        href="css/carrito.css"
+    >
+
 </head>
 
 
@@ -53,28 +58,56 @@
         </a>
 
 
-        <nav>
+        <div class="header-derecha">
 
-            <a href="index.html">
-                Inicio
-            </a>
+            <nav>
 
-            <a
-                href="productos.html"
-                class="nav-activo-productos"
+                <a href="index.html">
+                    Inicio
+                </a>
+
+                <a
+                    href="productos.html"
+                    class="nav-activo-productos"
+                >
+                    Productos
+                </a>
+
+                <a href="nosotros.html">
+                    Nosotros
+                </a>
+
+                <a href="contacto.html">
+                    Contacto
+                </a>
+
+            </nav>
+
+
+            <button
+                type="button"
+                class="boton-carrito-header"
+                id="abrirCarrito"
             >
-                Productos
-            </a>
 
-            <a href="nosotros.html">
-                Nosotros
-            </a>
+                <span class="carrito-icono">
+                    🛒
+                </span>
 
-            <a href="contacto.html">
-                Contacto
-            </a>
+                <span>
+                    Carrito
+                </span>
 
-        </nav>
+                <span
+                    class="carrito-contador"
+                    id="carritoContador"
+                >
+                    0
+                </span>
+
+            </button>
+
+        </div>
 
     </header>
 
@@ -210,8 +243,6 @@
 
 
 
-                <!-- FILTROS -->
-
                 <div class="filtros-catalogo">
 
                     <div class="filtros-catalogo-encabezado">
@@ -313,7 +344,7 @@
 
 
         <!-- ================================================= -->
-        <!-- PRODUCTO PRINCIPAL -->
+        <!-- PRODUCTO DESTACADO -->
         <!-- ================================================= -->
 
         <section
@@ -374,12 +405,13 @@
                         $1.199.990
                     </strong>
 
-                    <a
-                        href="contacto.html"
-                        class="boton-principal"
+                    <button
+                        type="button"
+                        class="boton-agregar-carrito"
+                        data-producto="pc"
                     >
-                        Consultar producto
-                    </a>
+                        Agregar al carrito
+                    </button>
 
                 </div>
 
@@ -412,8 +444,8 @@
 
 
                 <p>
-                    Utiliza la búsqueda, los filtros
-                    o abre los detalles de cada producto.
+                    Busca, filtra, revisa los detalles
+                    y agrega tus productos al carrito.
                 </p>
 
             </div>
@@ -481,12 +513,13 @@
                                     Ver detalles
                                 </button>
 
-                                <a
-                                    href="contacto.html"
-                                    class="enlace-consultar-producto"
+                                <button
+                                    type="button"
+                                    class="boton-agregar-carrito"
+                                    data-producto="teclado"
                                 >
-                                    Consultar
-                                </a>
+                                    Agregar
+                                </button>
 
                             </div>
 
@@ -549,12 +582,13 @@
                                     Ver detalles
                                 </button>
 
-                                <a
-                                    href="contacto.html"
-                                    class="enlace-consultar-producto"
+                                <button
+                                    type="button"
+                                    class="boton-agregar-carrito"
+                                    data-producto="mouse"
                                 >
-                                    Consultar
-                                </a>
+                                    Agregar
+                                </button>
 
                             </div>
 
@@ -617,12 +651,13 @@
                                     Ver detalles
                                 </button>
 
-                                <a
-                                    href="contacto.html"
-                                    class="enlace-consultar-producto"
+                                <button
+                                    type="button"
+                                    class="boton-agregar-carrito"
+                                    data-producto="audifonos"
                                 >
-                                    Consultar
-                                </a>
+                                    Agregar
+                                </button>
 
                             </div>
 
@@ -690,12 +725,13 @@
                                     Ver detalles
                                 </button>
 
-                                <a
-                                    href="contacto.html"
-                                    class="enlace-consultar-producto"
+                                <button
+                                    type="button"
+                                    class="boton-agregar-carrito"
+                                    data-producto="monitor"
                                 >
-                                    Consultar
-                                </a>
+                                    Agregar
+                                </button>
 
                             </div>
 
@@ -759,12 +795,13 @@
                                     Ver detalles
                                 </button>
 
-                                <a
-                                    href="contacto.html"
-                                    class="enlace-consultar-producto"
+                                <button
+                                    type="button"
+                                    class="boton-agregar-carrito"
+                                    data-producto="silla"
                                 >
-                                    Consultar
-                                </a>
+                                    Agregar
+                                </button>
 
                             </div>
 
@@ -827,12 +864,13 @@
                                     Ver detalles
                                 </button>
 
-                                <a
-                                    href="contacto.html"
-                                    class="enlace-consultar-producto"
+                                <button
+                                    type="button"
+                                    class="boton-agregar-carrito"
+                                    data-producto="control"
                                 >
-                                    Consultar
-                                </a>
+                                    Agregar
+                                </button>
 
                             </div>
 
@@ -900,12 +938,13 @@
                                     Ver detalles
                                 </button>
 
-                                <a
-                                    href="contacto.html"
-                                    class="enlace-consultar-producto"
+                                <button
+                                    type="button"
+                                    class="boton-agregar-carrito"
+                                    data-producto="gpu"
                                 >
-                                    Consultar
-                                </a>
+                                    Agregar
+                                </button>
 
                             </div>
 
@@ -917,7 +956,7 @@
 
 
 
-                <!-- PC GAMER -->
+                <!-- PC -->
 
                 <article
                     class="catalogo-producto"
@@ -972,12 +1011,13 @@
                                     Ver detalles
                                 </button>
 
-                                <a
-                                    href="contacto.html"
-                                    class="enlace-consultar-producto"
+                                <button
+                                    type="button"
+                                    class="boton-agregar-carrito"
+                                    data-producto="pc"
                                 >
-                                    Consultar
-                                </a>
+                                    Agregar
+                                </button>
 
                             </div>
 
@@ -991,10 +1031,6 @@
             </div>
 
 
-
-            <!-- ================================================= -->
-            <!-- SIN RESULTADOS -->
-            <!-- ================================================= -->
 
             <div
                 class="sin-resultados"
@@ -1069,7 +1105,7 @@
 
 
     <!-- ================================================= -->
-    <!-- MODAL DE PRODUCTO -->
+    <!-- MODAL PRODUCTO -->
     <!-- ================================================= -->
 
     <div
@@ -1078,12 +1114,10 @@
         aria-hidden="true"
     >
 
-
         <div
             class="modal-producto-backdrop"
             data-cerrar-modal
         ></div>
-
 
 
         <div
@@ -1092,7 +1126,6 @@
             aria-modal="true"
             aria-labelledby="modalProductoTitulo"
         >
-
 
             <button
                 type="button"
@@ -1105,11 +1138,8 @@
             </button>
 
 
-
             <div class="modal-producto-grid">
 
-
-                <!-- IMAGEN -->
 
                 <div class="modal-producto-visual">
 
@@ -1128,10 +1158,7 @@
 
 
 
-                <!-- INFORMACIÓN -->
-
                 <div class="modal-producto-contenido">
-
 
                     <span class="modal-producto-etiqueta">
                         DETALLE DE PRODUCTO
@@ -1147,7 +1174,6 @@
                     ></p>
 
 
-
                     <div class="modal-producto-precio">
 
                         <span>
@@ -1159,7 +1185,6 @@
                     </div>
 
 
-
                     <div class="modal-producto-caracteristicas">
 
                         <h3>
@@ -1169,7 +1194,6 @@
                         <ul id="modalProductoCaracteristicas"></ul>
 
                     </div>
-
 
 
                     <div class="modal-producto-acciones">
@@ -1193,7 +1217,6 @@
 
                     </div>
 
-
                 </div>
 
 
@@ -1202,8 +1225,172 @@
 
         </div>
 
-
     </div>
+
+
+
+    <!-- ================================================= -->
+    <!-- OVERLAY CARRITO -->
+    <!-- ================================================= -->
+
+    <div
+        class="carrito-overlay"
+        id="carritoOverlay"
+    ></div>
+
+
+
+    <!-- ================================================= -->
+    <!-- CARRITO -->
+    <!-- ================================================= -->
+
+    <aside
+        class="carrito-panel"
+        id="carritoPanel"
+        aria-hidden="true"
+    >
+
+
+        <div class="carrito-panel-cabecera">
+
+
+            <div>
+
+                <span class="carrito-panel-etiqueta">
+                    GAMERZONE
+                </span>
+
+                <h2>
+                    Tu carrito
+                </h2>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="carrito-cerrar"
+                id="cerrarCarrito"
+                aria-label="Cerrar carrito"
+            >
+                ×
+            </button>
+
+
+        </div>
+
+
+
+        <div class="carrito-contenido">
+
+
+            <div
+                class="carrito-vacio"
+                id="carritoVacio"
+            >
+
+                <span class="carrito-vacio-icono">
+                    🛒
+                </span>
+
+                <h3>
+                    Tu carrito está vacío
+                </h3>
+
+                <p>
+                    Agrega productos desde el catálogo
+                    y aparecerán aquí.
+                </p>
+
+            </div>
+
+
+            <div
+                class="carrito-lista"
+                id="carritoLista"
+            ></div>
+
+
+        </div>
+
+
+
+        <div class="carrito-panel-pie">
+
+
+            <div class="carrito-resumen">
+
+
+                <div class="carrito-resumen-fila">
+
+                    <span>
+                        Productos
+                    </span>
+
+                    <strong id="carritoCantidadResumen">
+                        0 productos
+                    </strong>
+
+                </div>
+
+
+                <div class="carrito-resumen-fila carrito-resumen-total">
+
+                    <span>
+                        Total
+                    </span>
+
+                    <strong id="carritoTotal">
+                        $0
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="carrito-acciones-finales">
+
+
+                <a
+                    href="contacto.html"
+                    class="carrito-continuar"
+                >
+                    Solicitar compra
+                </a>
+
+
+                <button
+                    type="button"
+                    class="carrito-vaciar"
+                    id="vaciarCarrito"
+                >
+                    Vaciar carrito
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+
+    </aside>
+
+
+
+    <!-- ================================================= -->
+    <!-- NOTIFICACIÓN -->
+    <!-- ================================================= -->
+
+    <div
+        class="notificacion-carrito"
+        id="notificacionCarrito"
+        role="status"
+        aria-live="polite"
+    ></div>
 
 
 
@@ -1252,14 +1439,11 @@
 
 
 
-    <!-- JS GENERAL -->
-
     <script src="js/script.js"></script>
 
-
-    <!-- JS DETALLES PRODUCTOS -->
-
     <script src="js/detalles-productos.js"></script>
+
+    <script src="js/carrito.js"></script>
 
 
 </body>
